@@ -26,4 +26,8 @@ export class ListComponent implements OnInit {
           this.cards = cards;
         });
   }
+
+  onAddNewCard():void {
+    console.log("Add New Card List : "+this.list.title);
+  }
 }

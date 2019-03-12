@@ -10,7 +10,7 @@ import { ListComponent } from './components/list/list.component';
 import { CardComponent } from './components/card/card.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { BoardItemComponent } from './components/board-item/board-item.component';
-import { CreateNewBoardItemComponent } from './components/create-new-board-item/create-new-board-item.component';
+import { CreateNewBoardComponent } from './components/create-new-board/create-new-board.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { CreateNewBoardItemComponent } from './components/create-new-board-item/
     CardComponent,
     LandingPageComponent,
     BoardItemComponent,
-    CreateNewBoardItemComponent
+    CreateNewBoardComponent
   ],
   imports: [
     BrowserModule,

@@ -42,4 +42,8 @@ export class BoardComponent implements OnInit {
     });
   }
 
+  onAddNewList():void {
+    console.log("Add New List For Board : "+this.board.title);
+  }
+
 }

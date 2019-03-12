@@ -1,7 +1,9 @@
-<div>
-	<h4>{{ list.title }}</h4>
-	<app-card 
-		*ngFor = "let card of cards"
-		[card] = "card">
-	</app-card>
+<h4>{{ list.title }}</h4>
+<app-card 
+	*ngFor = "let card of cards"
+	[card] = "card">
+</app-card>
+<div class="new-card" 
+	(click)="onAddNewCard()">
+  	Add another card
 </div>
