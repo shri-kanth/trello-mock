@@ -1,0 +1,10 @@
+<div>
+	<h3>Your Boards</h3>
+	<app-board-item 
+	*ngFor="let board of boards" 
+	[board]="board" 
+	class="col-1-4">
+	</app-board-item>
+	<app-create-new-board-item>
+	</app-create-new-board-item>
+</div>
