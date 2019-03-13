@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 import { BoardService } from '../../services/board.service'; 
 import { ListService } from '../../services/list.service'; 
@@ -44,6 +45,14 @@ export class BoardComponent implements OnInit {
 
   onAddNewList():void {
     console.log("Add New List For Board : "+this.board.title);
+  }
+
+  dropList(event: CdkDragDrop<List[]>) {
+    moveItemInArray(this.lists, event.previousIndex, event.currentIndex);
+  }
+
+  getListIdArray():Number[]{
+    return this.lists.map(list => list.id);
   }
 
 }

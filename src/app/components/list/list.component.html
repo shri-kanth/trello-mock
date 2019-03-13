@@ -1,8 +1,16 @@
 <h4>{{ list.title }}</h4>
-<app-card 
-	*ngFor = "let card of cards"
-	[card] = "card">
-</app-card>
+  <div
+      cdkDropList
+      id="{{getListId()}}"
+      [cdkDropListData]="cards"
+      [cdkDropListConnectedTo]="getConnectedList()"
+      (cdkDropListDropped)="dropCard($event)">
+      <app-card 
+		    *ngFor = "let card of cards"
+		    [card] = "card"
+		    cdkDrag>
+  	  </app-card>
+  </div>
 <div class="new-card" 
 	(click)="onAddNewCard()">
   	Add another card

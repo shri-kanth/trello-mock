@@ -1,10 +1,10 @@
 <h3>Your Boards</h3>
-<app-board-item 
+<div class="board"
 	*ngFor="let board of boards" 
-	[board]="board"
 	routerLink="/board/{{board.id}}">
-</app-board-item>
+	{{ board.title }}
+</div>
 <div class="new-board" (click)="onCreateNewBoard()">
-		Create new board...
+	Create new board...
 </div>
 

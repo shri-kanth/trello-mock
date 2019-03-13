@@ -1,4 +1,4 @@
-app-board-item, .new-board  {
+.board, .new-board  {
 	box-sizing: border-box;
 	cursor: pointer;
 	display: inline-block;
@@ -8,7 +8,7 @@ app-board-item, .new-board  {
 	margin: 0px 7px 8px 0px;
 }
 
-app-board-item {
+.board {
 	border-style: solid;
 	border-width: 1px;
 }
@@ -17,4 +17,5 @@ app-board-item {
 	border-style: dashed;
 	border-width: 1px;
 }
+
 

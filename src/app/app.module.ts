@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,7 +11,6 @@ import { BoardComponent } from './components/board/board.component';
 import { ListComponent } from './components/list/list.component';
 import { CardComponent } from './components/card/card.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
-import { BoardItemComponent } from './components/board-item/board-item.component';
 import { CreateNewBoardComponent } from './components/create-new-board/create-new-board.component';
 
 @NgModule({
@@ -21,12 +22,12 @@ import { CreateNewBoardComponent } from './components/create-new-board/create-ne
     ListComponent,
     CardComponent,
     LandingPageComponent,
-    BoardItemComponent,
     CreateNewBoardComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,16 @@
 <app-menu [board]="board"></app-menu>
-<app-list 
-	*ngFor="let list of lists" 
-	[list]="list">
-</app-list>
+<div cdkDropList 
+ [cdkDropListData]="lists"
+ cdkDropListOrientation="horizontal"
+ (cdkDropListDropped)="dropList($event)">
+ 	<app-list 
+		*ngFor="let list of lists" 
+		[list]="list"
+		[cdkDragData]="list"
+		[listIdArray]="getListIdArray()"
+		cdkDrag>
+	</app-list>
+</div>
 <div class="new-list" 
 	(click)="onAddNewList()">
   	Add another list
