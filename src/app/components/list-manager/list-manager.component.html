@@ -1,0 +1,16 @@
+<div *ngIf="listService.isManagerActive">
+  <form class="form" 
+  		(ngSubmit)="onSubmit()">
+  	<input type="text" 
+  		   name="title" 
+  		   [(ngModel)]="title" 
+  		   placeholder="Add List title">
+  	<input type="submit" 
+  		   value="Submit" 
+  		   class="btn">
+  </form>
+  <button class="cancel"
+          (click)="listService.deActivateManager()">
+      Cancel
+  </button>
+</div>

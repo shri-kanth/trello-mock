@@ -45,6 +45,7 @@ export class BoardComponent implements OnInit {
 
   onAddNewList():void {
     console.log("Add New List For Board : "+this.board.title);
+    this.listService.activateManager();
   }
 
   dropList(event: CdkDragDrop<List[]>) {

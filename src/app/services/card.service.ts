@@ -8,6 +8,8 @@ import { Card } from '../models/Card';
 })
 export class CardService {
 
+  isManagerActive:Boolean = false;
+
   constructor() { }
 
   getCardsByListId(listId:number):Observable<Card[]>{
@@ -15,6 +17,32 @@ export class CardService {
     this.initialize();
   	return of(this.mockCardArray.filter(card => card.listId == listId));
   }
+
+  addNewCard(listId:number, title:string, description:string):Observable<Card>{
+    let card = {
+      id: this.mockCardArray.length+1,
+      title: title,
+      listId: listId,
+      description: description
+    }
+    this.mockCardArray.push(card);
+    return of(card);
+  }
+
+  deleteCard(id:Number):Observable<Card>{
+    let card = this.mockCardArray.find(c => c.id === id);
+    this.mockCardArray = this.mockCardArray.filter(c => c.id != id);
+    return of(card);
+  }
+
+  activateManager():void{
+    this.isManagerActive = true;
+  }
+
+  deActivateManager():void{
+    this.isManagerActive = false;
+  }
+
 
   mockCardArray:Card[];
 

@@ -21,7 +21,7 @@ export class LandingPageComponent implements OnInit {
   }
 
   onCreateNewBoard():void{
-    console.log("CREATE NEW BOARD!!");
+    this.boardService.activateManager();
   }
 
 }

@@ -10,10 +10,11 @@
 		[listIdArray]="getListIdArray()"
 		cdkDrag>
 	</app-list>
-</div>
-<div class="new-list" 
-	(click)="onAddNewList()">
-  	Add another list
+	<div class="new-list" 
+		 (click)="onAddNewList()">
+  		Add another list
+	</div>
+	<app-list-manager [board]="board"></app-list-manager>
 </div>
 
 

@@ -4,7 +4,9 @@
 	routerLink="/board/{{board.id}}">
 	{{ board.title }}
 </div>
-<div class="new-board" (click)="onCreateNewBoard()">
+<div class="new-board" 
+	 (click)="onCreateNewBoard()">
 	Create new board...
 </div>
+<app-board-manager></app-board-manager>
 

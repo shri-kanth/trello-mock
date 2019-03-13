@@ -8,12 +8,38 @@ import { List } from '../models/List';
 })
 export class ListService {
 
+  isManagerActive:Boolean = false;
+
   constructor() { }
 
   getListsByBoardId(boardId:number):Observable<List[]>{
   	console.log("Fetching Lists for BoardId : "+boardId);
     this.initialize();
   	return of(this.mockListArray.filter(list => list.boardId == boardId));
+  }
+
+  addNewList(boardId:number, title:string):Observable<List>{
+    let list = {
+      id: this.mockListArray.length+1,
+      title: title,
+      boardId: boardId
+    }
+    this.mockListArray.push(list);
+    return of(list);
+  }
+
+  deleteList(id:Number):Observable<List>{
+    let list = this.mockListArray.find(l => l.id === id);
+    this.mockListArray = this.mockListArray.filter(l => l.id != id);
+    return of(list);
+  }
+
+  activateManager():void{
+    this.isManagerActive = true;
+  }
+
+  deActivateManager():void{
+    this.isManagerActive = false;
   }
 
   mockListArray:List[];

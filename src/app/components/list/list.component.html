@@ -1,5 +1,5 @@
 <h4>{{ list.title }}</h4>
-  <div
+<div
       cdkDropList
       id="{{getListId()}}"
       [cdkDropListData]="cards"
@@ -10,8 +10,8 @@
 		    [card] = "card"
 		    cdkDrag>
   	  </app-card>
-  </div>
-<div class="new-card" 
-	(click)="onAddNewCard()">
-  	Add another card
+      <div class="new-card" 
+          (click)="onAddNewCard()">
+          Add another card
+      </div>
 </div>

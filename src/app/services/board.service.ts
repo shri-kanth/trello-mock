@@ -8,6 +8,8 @@ import { Board } from '../models/Board';
 })
 export class BoardService {
 
+  isManagerActive:Boolean = false;
+
   constructor() { }
 
   getAllBoards():Observable<Board[]>{
@@ -20,6 +22,29 @@ export class BoardService {
     console.log("Fetching Board by ID : "+id);
     this.initialize();
     return of(this.mockBoardArray.find(b => b.id == id));
+  }
+
+  addNewBoard(title:string):Observable<Board>{
+    let board = {
+      id: this.mockBoardArray.length+1,
+      title: title
+    }
+    this.mockBoardArray.push(board);
+    return of(board);
+  }
+
+  deleteBoard(id:Number):Observable<Board>{
+    let board = this.mockBoardArray.find(b => b.id === id);
+    this.mockBoardArray = this.mockBoardArray.filter(b => b.id != id);
+    return of(board);
+  }
+
+  activateManager():void{
+    this.isManagerActive = true;
+  }
+
+  deActivateManager():void{
+    this.isManagerActive = false;
   }
 
   mockBoardArray:Board[];
