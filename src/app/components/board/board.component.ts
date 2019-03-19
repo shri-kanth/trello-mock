@@ -17,7 +17,10 @@ import { List } from '../../models/List';
 export class BoardComponent implements OnInit {
 
   board:Board;
+
   lists:List[];
+
+  isAddListManagerActive:Boolean;
 
   constructor(
   	private route: ActivatedRoute,
@@ -27,25 +30,28 @@ export class BoardComponent implements OnInit {
   ) {}
 
   ngOnInit() {	
-  	this.setActiveBoard();
-    this.setLists(this.board);
-  }
-
-  setActiveBoard():void {
   	const id = this.route.snapshot.paramMap.get('id');
-  	console.log("Active Board ID : "+id);
-  	this.boardService.getBoardById(Number(id)).subscribe(board => this.board = board);
-  }
-
-  setLists(board:Board):void{
-    this.listService.getListsByBoardId(board.id).subscribe(lists =>{
+    this.isAddListManagerActive = false;
+    this.boardService.getBoardById(Number(id)).subscribe(board => this.board = board);
+    this.listService.getListsByBoardId(this.board.id).subscribe(lists =>{
         this.lists = lists;
     });
   }
 
-  onAddNewList():void {
-    console.log("Add New List For Board : "+this.board.title);
-    this.listService.activateManager();
+  onAddNewList() {
+    this.isAddListManagerActive = true; 
+  }
+
+  listManagerEventEmitter(listEvent: any){
+    console.log("Recieved List Message");
+    if(listEvent && listEvent.boardId == this.board.id){
+      this.listService.getListsByBoardId(this.board.id).subscribe(lists =>{
+        this.lists = lists;
+      });   
+    }else if(listEvent === undefined){
+      console.log("Recieved Cancel List Message");
+      this.isAddListManagerActive = false; 
+    }
   }
 
   dropList(event: CdkDragDrop<List[]>) {

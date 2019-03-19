@@ -1,3 +1,27 @@
-<p>
-  card-manager works!
-</p>
+<div>
+  <form class="form"
+        (ngSubmit)="onSubmit()">
+      <div>
+        <input type="text" 
+         name="title" 
+         [(ngModel)]="title" 
+         placeholder="Add Card title">
+      </div>
+      <div>
+        <input type="text" 
+         name="description" 
+         [(ngModel)]="description" 
+         placeholder="Add Card description">
+      </div>
+  	   <div>
+        <input type="submit" 
+                value="Submit" 
+                class="btn"
+                (ngSubmit)="onSubmit()">
+        <input type="submit" 
+               value="Cancel"
+               class="btn" 
+               (ngSubmit)="onCancel()">
+       </div>
+  </form>
+</div>

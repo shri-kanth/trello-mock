@@ -1,17 +1,25 @@
 <h4>{{ list.title }}</h4>
 <div
-      cdkDropList
-      id="{{getListId()}}"
-      [cdkDropListData]="cards"
-      [cdkDropListConnectedTo]="getConnectedList()"
-      (cdkDropListDropped)="dropCard($event)">
-      <app-card 
-		    *ngFor = "let card of cards"
-		    [card] = "card"
-		    cdkDrag>
-  	  </app-card>
-      <div class="new-card" 
-          (click)="onAddNewCard()">
-          Add another card
-      </div>
+    cdkDropList
+    id="{{getListId()}}"
+    [cdkDropListData]="cards"
+    [cdkDropListConnectedTo]="getConnectedList()"
+    (cdkDropListDropped)="dropCard($event)">
+    <app-card 
+		  *ngFor = "let card of cards"
+		  [card] = "card"
+		  cdkDrag>
+  	 </app-card>
+</div>
+<div class="new-card" 
+  (click)="onAddNewCard()">
+    Add another card
+    {{isAddCardManagerActive}}
+  <app-card-manager
+    *ngIf="isAddCardManagerActive" 
+    (cardManagerSubmitEventEmitter)="cardManagerEventEmitter($event)"
+    (cardManagerCancelEventEmitter)="cardManagerEventEmitter($event)"
+    [list]="list"> 
+  </app-card-manager>
+
 </div>

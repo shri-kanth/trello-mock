@@ -13,8 +13,12 @@
 	<div class="new-list" 
 		 (click)="onAddNewList()">
   		Add another list
+  		<app-list-manager
+  			*ngIf="isAddListManagerActive" 
+  			[board]="board"
+			(listManagerEventEmitter)="listManagerEventEmitter($event)">
+		</app-list-manager>
 	</div>
-	<app-list-manager [board]="board"></app-list-manager>
 </div>
 
 

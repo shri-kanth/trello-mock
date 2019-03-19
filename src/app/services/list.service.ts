@@ -58,11 +58,6 @@ export class ListService {
           title: "List 2"
         },
         {
-          id: 2,
-          boardId: 0,
-          title: "List 3"
-        },
-        {
           id: 3,
           boardId: 1,
           title: "List 1a"
@@ -71,11 +66,6 @@ export class ListService {
           id: 4,
           boardId: 1,
           title: "List 2a"
-        },
-        {
-          id: 5,
-          boardId: 1,
-          title: "List 3a"
         }
       ];
     }

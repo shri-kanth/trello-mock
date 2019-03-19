@@ -1,20 +1,178 @@
-header {
+#header {
     background: #026aa7;
+    overflow: hidden;
     padding: 4px;
-    margin: 0px 0px 4px 0px;
-    height: 60px;
+    position: relative;
+    z-index: 10;
+  }
+
+.logo {
+    bottom: 0;
+    display: block;
+    height: 30px;
+    left: 50%;
+    margin-left: -40px;
+    opacity: 0.5;
+    position: absolute;
+    top: 5px;
+    width: 80px;
+    text-align: center;
+    -webkit-transition: 0.1s ease; /* Safari */
+    transition: 0.1s ease;
+    z-index: 2;
 }
 
-div {
-	font-family: Helvetica Neue,Arial,Helvetica,sans-serif;
+.logo:hover {
+    opacity: 0.8;
+}
+
+.logo-default {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAeCAMAAACMnWmDAAACOlBMVEX///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9Oi5STAAAAvXRSTlMAHOMEArYG5/j3CvsDDPb6KNv+JAGqjbH9/Mx79PNK4SnNX4M9xjdd+WCYFNKhy1YYtX9ZkdzxQ3XQSQ5zIBvqKjC45cUsHqmcDXRhEbymD6JaZegFTKyllZnYeIDaI/Xe68fp0zziCXInJS5Fl+2CiNQdIu6EjESLwHarVGbROKTCyXlizrKabyGoE7TshY4ZuVh+T2RVGvJ3o8o/sCtXRr4m4FsQQq0Iv9Xfa9Y0uzbXkjGTY0c7OcgXQTLmT9zPAAACwElEQVR4Xu3URW9cSRRA4dPudpOZOUZmhjDzBJkZJjzMzMzMzMxw/tvotWwpT5amFWk2I+Xb3N1Z1K0qrsI19x2pac+H9ROpA/wnmtUIi6q1lqsRW7x02WnmalNXQqU6Rci8HENy5hE4X9e5YeHlNX1JteGWOGHEajXZxNkubY4SEvTCRQK1XulxwnhF3Q9Pa9E5wjQ3ApFcHZ6ZBNaaUXLny20nNy2PELZgiQ7kM18dIQyNANw4MyNKxk0dI2onV+ruy1tRFQEua9cq8m/Q6R2wbrRlI7PQOXPGdTpQDptjZFC+xUAurE5pHWzTvGWwtFFvPpc9WFaqv8IeE70QmV9GpdZv0j7o13ujpBP6LAw1qlZFswZv15XAmHYP9dfoMa3vuEv3UFytbTClp9Kka7XnoNa/XrT91n8Lxo/qTuAOffSiGUXv36Z5H/Kk3g8FR/VueE7boxUGjteFQ+GlvKhfxWBjnoHmewp14dmLWsf1pSZfgyl9AIqLTJXxoPaMFpOhoeszrLMr8SGgRbV+W/nD+siicX0MenQvRHN0PizXA8QnLCyYu5RZBDbn6RNAlbqvGEp09IhWxHiq0Joy2KrT0KTPpBnUXWQJDuo0UJDSkufhpHYl9IU4O/ZqBfCFboWXtBXadTBbsF8vAa/q4UPAGwbejLP4LfVtgoM8Hod39F3e04Y0EF5GOBhbopPAB7oe4IyaOgOTCfUj+LhBx4iu1cL8T1bopblvORzs0JoCaNHtUYBPtaSJaGu16md0l6qd+RVq4edbtLGAWTgHwIieAE7pGIF4o4nzG77Uwxd01/5M9+thndBvNPlt1u/rgn4HjOv3ZEw2GDjWdPoH1WRrkeq+yI9qamf2D3bVgJXATyd+ZsbqyoTjv8Sgd3fSg7/x+x9a9Sf8tWb332QHQ+WEwToyWHAoBhDp5f/gmn8Ard3CvkoCRlIAAAAASUVORK5CYII=);
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: 80px 30px;
+    height: 30px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 80px;
+}
+
+.logo-loading {
+    background-image: url(data:image/gif;base64,R0lGODlhJAAkAJECAAAAAP///////wAAACH/C05FVFNDQVBFMi4wAwEAAAAh/wtYTVAgRGF0YVhNUDw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDowMTgwMTE3NDA3MjA2ODExOEE2REI3NTM4REJEMDY3NCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo3OTBGMzBCQzNCNjcxMUUzQkIyMEI2OUM3RTBFRUMxMCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo3OTBGMzBCQjNCNjcxMUUzQkIyMEI2OUM3RTBFRUMxMCIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjAyODAxMTc0MDcyMDY4MTE4QTZEQjc1MzhEQkQwNjc0IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjAxODAxMTc0MDcyMDY4MTE4QTZEQjc1MzhEQkQwNjc0Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkECQkAAgAsAAAAACQAJAAAAmuUgqnLrXacnCzSi7OmsNvlQVwogqQhnd2jok3rIvDHtrXqzPeZwzvZsyV0L9/QWEEGiEmhTPkLRT1B3NFpwjKz1iuwyuOuUtCNN2wWf9PTMfu8fi/L6e3bfu/K4bG9/w8YKLhBMzhXGGhQAAAh+QQJCQACACwAAAAAJAAkAAACa5SCqcutdpycLNKLs6aw2+VBXCiCpCGd3aOiTesi8Me2terM95nDO9mzJXQv39BYQQaISaFM+QtFPUHc0WnCMrPWJ3a6una5PHG5Od6CS2Zq9dyOvd2bFLCOz+v3/L7/DxgoODhBM8h2KFAAACH5BAkJAAIALAAAAAAkACQAAAJrlIKpy612nJws0ouzprDb5UFcKIKkIZ3do6JN6yLwx7a16sz3mcM72bMldC/f0FhBBohJoUz5C0U9QdzRacIys9Yndrq6dptAcKkaNsc2XB6b7H6rafKt3Fu+t8/6vv8PGCg46Ec3yHcoUAAAIfkECQkAAgAsAAAAACQAJAAAAmaUgqnLrXacnCzSi7OmsNvlQVwogqQhnd2jok3rIvDHtrXqzPeZwzvZsyV0L9/QWEEGiEmhTPkLRT0p3HRVlZqcm6216+WBw8DxtWR+cs3MdJsNHb/lcfDcXseL01O+/58CmCWYVAAAIfkECQkAAgAsAAAAACQAJAAAAmmUgqnLrXacnCzSi7OmsNvlQVwogqQhnd2jok3rIvDHtrXqzPeZwzvZsyV0L9/QWEEGiEmhTPkLRT1B3NFpwjKbwOkq1fWWNlweuRw+X63qtbn9xLa3c6iaXn/D3eO9/w8YKEgjGFfIUgAAIfkECQkAAgAsAAAAACQAJAAAAmuUgqnLrXacnCzSi7OmsNvlQVwogqQhnd2jok3rIvDHtrXqzPeZwzvZsyV0L9/QWEEGiEmhTPkLRT1B3NFpwjKz1id2urp2uTxxuTnekqngUjXcjm3Q0nkKaM/r9/y+/w8YKDjIQVhjuCRQAAAh+QQJCQACACwAAAAAJAAkAAACa5SCqcutdpycLNKLs6aw2+VBXCiCpCGd3aOiTesi8Me2terM95nDO9mzJXQv39BYQQaISaFM+QtFPUHc0WnCMrPWJ3a6una5PDDNHBOHq+VNc+xWA+PkOd18L0rz/L7/DxgoOHhxJlhCaFAAACH5BAUJAAIALAAAAAAkACQAAAJnlIKpy612nJws0ouzprDb5UFcKIKkIZ3do6JN6yLwx7a16sz3mcM72bMldC/f0FhBBohJoUz5C0U9Qdw01rROJ8yNyem9lsJiLHkJJXfPa3U63Ia/vXH63M47Z1f6vv8/BJhiJohWAAA7);
+    background-size: 18px 18px;
+    display: none;
+    height: 18px;
+    left: 2px;
+    position: absolute;
+    top: 6px;
+    width: 18px;
+}
+
+.header-button {
+    transition: 0.1s ease;
+    background: #ffffff4d;
+    color: #fff;
+    border-radius: 3px;
+    display: block;
+    height: 32px;
+    float: left;
+    line-height: 32px;
+    font-weight: 700;
+    margin-right: 4px;
+    min-width: 32px;
+    padding: 2px;
+    position: relative;
+    user-select: none;
+}
+
+.header-button:hover{
+    background: #ffffff33;
+}
+
+.header-button-icon {
+    text-decoration: none;
+    /* position: absolute; */
+    display: inline-block;
+    top: 0;
+    left: 0;
+    height: 32px;
+    width: 32px;
+    font-style: normal;
     font-size: 16px;
-    color: white;
-}
-
-.title {
+    font-weight: 400;
     text-align: center;
 }
 
-.home {
-    text-align: left;
+.header-text {
+    font-family: Helvetica Neue,Arial,Helvetica,sans-serif;
+    display: inline-block;
+    font-size: 14px;
+    padding: 0 8px;
 }
+
+.header-search {
+    position: absolute;
+    display: inline-block;
+    /* border: solid black 2px; */
+    border-radius: 3px;
+    background: #ffffff4d;
+}
+
+.header-search-input {
+    height: 32px;
+    width: 180px;
+    /* border-radius: 0%; */
+    background:transparent;
+    border: none;
+    box-shadow: none;
+    float: left;
+    font-size: 13px;
+    padding-left: 8px;
+    line-height: 19px;
+    transition: width 150ms;
+    z-index: 1;
+}
+
+.header-search-input:focus{
+    background: white;
+}
+
+.header-search-icon{
+    color: #fff;
+    line-height: 32px;
+    padding: 2px;
+}
+
+.header-user .header-button {
+    float: right;
+}
+
+.header-avatar{
+    display: block;
+    margin-right: 0px;
+    height: 32px;
+    border-radius: 25em;
+    background-color: #dfe3e6;
+    color: #17394d;
+    overflow: visible;
+    position: relative;
+    width: 32px;
+}
+
+.header-avatar span{
+    font-family: Helvetica Neue,Arial,Helvetica,sans-serif;
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    height: 32px;
+    left: 0;
+    line-height: 32px;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+}
+
+.notifications {
+    background: #00c2e0;
+}
+
+.notifications:hover{
+    background: #00aecc;
+}
+
+@media only screen and (max-width: 750px) {
+ .header-text, .header-search-input{
+     display: none;
+ }
+}
+
+
+
+
+
+
+
+

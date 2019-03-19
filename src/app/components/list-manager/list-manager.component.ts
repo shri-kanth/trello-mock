@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 import { ListService } from  '../../services/list.service';
 import { List } from '../../models/List';
@@ -12,8 +12,10 @@ import { Board } from '../../models/Board';
 export class ListManagerComponent implements OnInit {
 
   @Input() board:Board;
+  
+  @Output() listManagerEventEmitter: EventEmitter<any> = new EventEmitter();
  
-  title:string;
+  title:string; 
 
   constructor(private listService:ListService) { }
 
@@ -21,8 +23,16 @@ export class ListManagerComponent implements OnInit {
   }
 
   onSubmit() {
-    this.listService.addNewList(this.board.id,this.title);
-    this.listService.deActivateManager();
+    this.listService
+      .addNewList(this.board.id,this.title)
+      .subscribe(newList => this.listManagerEventEmitter.emit(newList));
+    console.log("List Create Event Emitted");
+  }
+
+  onCancel(){
+    this.title = undefined;
+    this.listManagerEventEmitter.emit(undefined);
+    console.log("Cancel List Create Event Emitted");
   }
 
 }

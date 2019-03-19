@@ -17,6 +17,8 @@ export class ListComponent implements OnInit {
 
   @Input() listIdArray: Number[];
 
+  isAddCardManagerActive:Boolean;
+
   cards:Card[];
 
   private LIST_ID_PREFIX:string = 'list-id';
@@ -24,6 +26,7 @@ export class ListComponent implements OnInit {
   constructor(private cardService:CardService) { }
 
   ngOnInit() {
+    this.isAddCardManagerActive = false;
   	this.cardService
       .getCardsByListId(this.list.id)
       .subscribe(cards => 
@@ -32,10 +35,27 @@ export class ListComponent implements OnInit {
         });
   }
 
-  onAddNewCard():void {
-    console.log("Add New Card List : "+this.list.title);
+  onAddNewCard() {
+    this.isAddCardManagerActive = true; 
   }
 
+  cardManagerEventEmitter(cardEvent){
+    if(cardEvent && cardEvent.listId == this.list.id){   
+      this.cardService
+      .getCardsByListId(this.list.id)
+      .subscribe(cards => 
+        {
+          this.cards = cards;
+        });
+      this.isAddCardManagerActive = false;
+      console.log(this);
+    }else{
+      console.log("Recieved Cancel List Message");
+      this.isAddCardManagerActive = false;
+      console.log(this);
+    }
+  }
+  
   dropCard(event: CdkDragDrop<Card[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);

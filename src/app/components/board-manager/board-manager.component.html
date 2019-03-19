@@ -1,19 +1,22 @@
-<div *ngIf="boardService.isManagerActive">
-  <h2>Board Manager</h2>
+<div>
   <form class="form" 
   		(ngSubmit)="onSubmit()">
-  	<input type="text" 
-  		   name="title" 
-  		   [(ngModel)]="title" 
-  		   placeholder="Add board title">
-  	<input type="submit" 
-  		   value="Submit" 
-  		   class="btn">
+      <div>
+        <input type="text" 
+         name="title" 
+         [(ngModel)]="title" 
+         placeholder="Add Board title">    
+      </div>
+      <div>
+        <input type="submit" 
+         value="Submit" 
+         class="btn">
+        <input type="button" 
+          value="Cancel"
+          class="btn" 
+          (click)="onCancel()">
+      </div> 	
   </form>
-  <button class="cancel"
-          (click)="boardService.deActivateManager()">
-      Cancel
-  </button>
 </div>
 
 

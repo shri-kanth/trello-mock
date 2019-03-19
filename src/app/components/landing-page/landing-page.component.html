@@ -7,6 +7,10 @@
 <div class="new-board" 
 	 (click)="onCreateNewBoard()">
 	Create new board...
+	<app-board-manager
+	    *ngIf="isAddBoardManagerActive"
+		(boardManagerEventEmitter)="boardManagerEventEmitter($event)">
+	</app-board-manager>
 </div>
-<app-board-manager></app-board-manager>
+
 

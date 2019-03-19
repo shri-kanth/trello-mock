@@ -13,7 +13,6 @@ export class BoardService {
   constructor() { }
 
   getAllBoards():Observable<Board[]>{
-  	console.log("Fetching All Boards");
     this.initialize();
   	return of(this.mockBoardArray);
   }
@@ -54,11 +53,7 @@ export class BoardService {
       this.mockBoardArray = [ 
         {
           id: 0,
-          title: "Awesome Board"
-        },
-        {
-          id: 1,
-          title: "Board 2"
+          title: "Test Board"
         }
       ]
     }

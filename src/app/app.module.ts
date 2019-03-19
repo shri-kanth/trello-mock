@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +17,7 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { BoardManagerComponent } from './components/board-manager/board-manager.component';
 import { ListManagerComponent } from './components/list-manager/list-manager.component';
 import { CardManagerComponent } from './components/card-manager/card-manager.component';
+import { FontAwesomeIconLoader } from './utils/font-awesome-icon-loader';
 
 @NgModule({
   declarations: [
@@ -34,9 +37,14 @@ import { CardManagerComponent } from './components/card-manager/card-manager.com
     AppRoutingModule,
     DragDropModule,
     OverlayModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(){
+    new FontAwesomeIconLoader().iconsArray.forEach(icon => library.add(icon));
+  }
+}
