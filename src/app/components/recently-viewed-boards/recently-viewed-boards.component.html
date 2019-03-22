@@ -1,0 +1,11 @@
+<div class="board-section-header">
+	<fa-icon [icon]="['fas','clock']"></fa-icon>
+	<span>Recently Viewed</span>
+</div>
+<div class="board-list">
+	<div class="board"
+		*ngFor="let board of recentlyViewedBoards" 
+		routerLink="/board/{{board.id}}">
+		<div class="board-tile-details">{{ board.title }}</div>
+	</div>
+</div>

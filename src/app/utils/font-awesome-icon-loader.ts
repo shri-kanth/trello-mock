@@ -1,7 +1,8 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faHome, faPlusSquare,
-        faSearch, faPlus,
-        faBell,faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+        faSearch, faPlus,faLock,
+        faBell,faInfoCircle,
+        faTimes,faClock,faUser } from '@fortawesome/free-solid-svg-icons';
 
 export class FontAwesomeIconLoader {
     iconsArray:IconDefinition[] = [];
@@ -9,7 +10,8 @@ export class FontAwesomeIconLoader {
          this.iconsArray
             .push(
                 faHome, faPlusSquare,
-                faSearch, faPlus,
-                faBell,faInfoCircle);
+                faSearch, faPlus,faLock,
+                faBell,faInfoCircle,
+                faTimes,faClock,faUser);
     }
 }

@@ -23,6 +23,11 @@ export class BoardService {
     return of(this.mockBoardArray.find(b => b.id == id));
   }
 
+  getRecentlyViewedBoards():Observable<Board[]>{
+    this.initialize();
+  	return of(this.mockBoardArray);
+  }
+
   addNewBoard(title:string):Observable<Board>{
     let board = {
       id: this.mockBoardArray.length+1,

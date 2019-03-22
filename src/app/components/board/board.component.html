@@ -1,24 +1,27 @@
-<app-menu [board]="board"></app-menu>
-<div cdkDropList 
- [cdkDropListData]="lists"
- cdkDropListOrientation="horizontal"
- (cdkDropListDropped)="dropList($event)">
- 	<app-list 
-		*ngFor="let list of lists" 
-		[list]="list"
-		[cdkDragData]="list"
-		[listIdArray]="getListIdArray()"
-		cdkDrag>
-	</app-list>
-	<div class="new-list" 
-		 (click)="onAddNewList()">
-  		Add another list
-  		<app-list-manager
-  			*ngIf="isAddListManagerActive" 
-  			[board]="board"
-			(listManagerEventEmitter)="listManagerEventEmitter($event)">
-		</app-list-manager>
+<div class="surface">
+	<app-menu [board]="board"></app-menu>
+	<div cdkDropList 
+	[cdkDropListData]="lists"
+	cdkDropListOrientation="horizontal"
+	(cdkDropListDropped)="dropList($event)"
+	class="list-container">
+		<app-list 
+			*ngFor="let list of lists" 
+			[list]="list"
+			[cdkDragData]="list"
+			[listIdArray]="getListIdArray()"
+			cdkDrag>
+		</app-list>
+		<div class="new-list" 
+			(click)="onAddNewList()">
+			<fa-icon [icon]='["fas","plus"]'></fa-icon>
+            <span>Add another list</span>
+			<app-list-manager
+				*ngIf="isAddListManagerActive" 
+				[board]="board"
+				(listManagerEventEmitter)="listManagerEventEmitter($event)">
+			</app-list-manager>
+		</div>
 	</div>
 </div>
-
 

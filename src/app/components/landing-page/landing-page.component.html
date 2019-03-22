@@ -1,16 +1,9 @@
-<h3>Your Boards</h3>
-<div class="board"
-	*ngFor="let board of boards" 
-	routerLink="/board/{{board.id}}">
-	{{ board.title }}
+<div class="container">
+	<div class="sidebar-cover">
+		<app-sidebar></app-sidebar>
+	</div>
+	<div class="all-boards">
+		<app-recently-viewed-boards></app-recently-viewed-boards>
+		<app-personal-boards></app-personal-boards>
+	</div>
 </div>
-<div class="new-board" 
-	 (click)="onCreateNewBoard()">
-	Create new board...
-	<app-board-manager
-	    *ngIf="isAddBoardManagerActive"
-		(boardManagerEventEmitter)="boardManagerEventEmitter($event)">
-	</app-board-manager>
-</div>
-
-

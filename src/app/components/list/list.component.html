@@ -1,25 +1,28 @@
-<h4>{{ list.title }}</h4>
-<div
-    cdkDropList
-    id="{{getListId()}}"
-    [cdkDropListData]="cards"
-    [cdkDropListConnectedTo]="getConnectedList()"
-    (cdkDropListDropped)="dropCard($event)">
-    <app-card 
-		  *ngFor = "let card of cards"
-		  [card] = "card"
-		  cdkDrag>
-  	 </app-card>
-</div>
-<div class="new-card" 
-  (click)="onAddNewCard()">
-    Add another card
-    {{isAddCardManagerActive}}
-  <app-card-manager
-    *ngIf="isAddCardManagerActive" 
-    (cardManagerSubmitEventEmitter)="cardManagerEventEmitter($event)"
-    (cardManagerCancelEventEmitter)="cardManagerEventEmitter($event)"
-    [list]="list"> 
-  </app-card-manager>
-
+<div class="list-container">
+  <div class="list-header">
+    <h2>{{ list.title }}</h2>
+  </div>  
+  <div
+      cdkDropList
+      id="{{getListId()}}"
+      [cdkDropListData]="cards"
+      [cdkDropListConnectedTo]="getConnectedList()"
+      (cdkDropListDropped)="dropCard($event)">
+      <app-card 
+        *ngFor = "let card of cards"
+        [card] = "card"
+        cdkDrag>
+      </app-card>
+  </div>
+  <div class="new-card" 
+    (click)="onAddNewCard()">
+      <fa-icon [icon]='["fas","plus"]'></fa-icon>
+      <span>Add another card</span>
+    <app-card-manager
+      *ngIf="isAddCardManagerActive" 
+      (cardManagerSubmitEventEmitter)="cardManagerEventEmitter($event)"
+      (cardManagerCancelEventEmitter)="cardManagerEventEmitter($event)"
+      [list]="list"> 
+    </app-card-manager>
+  </div>
 </div>
