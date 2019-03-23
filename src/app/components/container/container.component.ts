@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BoardService } from '../../services/board.service';
+
+import { BoardService } from '../../services/board.service'; 
 
 @Component({
   selector: 'app-container',
@@ -8,14 +9,16 @@ import { BoardService } from '../../services/board.service';
 })
 export class ContainerComponent implements OnInit {
 
+  boardService: BoardService;
   isBoardsPopUpActive:Boolean;
   isCreatePopUpActive:Boolean;
   isInfoPopUpActive:Boolean;
   isNotificationPopUpActive:Boolean;
   isProfilePopUpActive:Boolean;
 
-  constructor(private boardService:BoardService) {
-   }
+  constructor(
+  	boardService: BoardService
+  ) {}
 
   ngOnInit() {
     this.isBoardsPopUpActive = false;
