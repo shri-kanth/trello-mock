@@ -5,7 +5,6 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { MatGridListModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -59,8 +58,7 @@ import { NotificationPopUpComponent } from './components/notification-pop-up/not
     OverlayModule,
     FormsModule,
     FontAwesomeModule,
-    BrowserAnimationsModule,
-    MatGridListModule
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

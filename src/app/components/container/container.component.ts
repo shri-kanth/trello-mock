@@ -9,7 +9,6 @@ import { BoardService } from '../../services/board.service';
 })
 export class ContainerComponent implements OnInit {
 
-  boardService: BoardService;
   isBoardsPopUpActive:Boolean;
   isCreatePopUpActive:Boolean;
   isInfoPopUpActive:Boolean;
@@ -17,7 +16,7 @@ export class ContainerComponent implements OnInit {
   isProfilePopUpActive:Boolean;
 
   constructor(
-  	boardService: BoardService
+  	private boardService: BoardService
   ) {}
 
   ngOnInit() {
@@ -26,6 +25,10 @@ export class ContainerComponent implements OnInit {
     this.isInfoPopUpActive = false;
     this.isNotificationPopUpActive = false;
     this.isProfilePopUpActive = false;
+  }
+
+  isManagerActive():Boolean{
+    return this.boardService.isManagerActive;
   }
 
 }
