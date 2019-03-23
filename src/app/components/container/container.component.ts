@@ -15,14 +15,14 @@ export class ContainerComponent implements OnInit {
   isProfilePopUpActive:Boolean;
 
   constructor(private boardService:BoardService) {
+   }
+
+  ngOnInit() {
     this.isBoardsPopUpActive = false;
     this.isCreatePopUpActive = false;
     this.isInfoPopUpActive = false;
     this.isNotificationPopUpActive = false;
     this.isProfilePopUpActive = false;
-   }
-
-  ngOnInit() {
   }
 
 }
