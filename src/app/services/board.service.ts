@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 import { Board } from '../models/Board';
+import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,36 +11,32 @@ export class BoardService {
 
   isManagerActive:Boolean = false;
 
-  constructor() { }
+  constructor(
+    private storageService:StorageService
+  ) { }
 
   getAllBoards():Observable<Board[]>{
-    this.initialize();
-  	return of(this.mockBoardArray);
+    return of(<Board[]>this.storageService.getAll(StorageService.BOARD_ENTITY,null)); 
   }
 
   getBoardById(id:number):Observable<Board>{
-    console.log("Fetching Board by ID : "+id);
-    this.initialize();
-    return of(this.mockBoardArray.find(b => b.id == id));
+    return of(<Board>this.storageService.get(StorageService.BOARD_ENTITY,String(id)));
   }
 
   getRecentlyViewedBoards():Observable<Board[]>{
-    this.initialize();
-  	return of(this.mockBoardArray);
+    return of(<Board[]>this.storageService.getAll(StorageService.BOARD_ENTITY,null)); 
   }
 
   addNewBoard(title:string):Observable<Board>{
-    let board = {
-      id: this.mockBoardArray.length+1,
-      title: title
-    }
-    this.mockBoardArray.push(board);
-    return of(board);
+    let board = new Board();
+    board.title = title;
+    return of(<Board>this.storageService.saveOrUpdate(StorageService.BOARD_ENTITY,board));
   }
 
   deleteBoard(id:Number):Observable<Board>{
-    let board = this.mockBoardArray.find(b => b.id === id);
-    this.mockBoardArray = this.mockBoardArray.filter(b => b.id != id);
+    let board = undefined;
+    // let board = this.mockBoardArray.find(b => b.id === id);
+    // this.mockBoardArray = this.mockBoardArray.filter(b => b.id != id);
     return of(board);
   }
 
@@ -51,16 +48,4 @@ export class BoardService {
     this.isManagerActive = false;
   }
 
-  mockBoardArray:Board[];
-
-  initialize() {
-    if(this.mockBoardArray === undefined || this.mockBoardArray.length == 0){
-      this.mockBoardArray = [ 
-        {
-          id: 0,
-          title: "Test Board"
-        }
-      ]
-    }
-  }
 }

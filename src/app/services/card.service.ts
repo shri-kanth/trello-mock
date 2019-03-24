@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 import { Card } from '../models/Card';
+import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,29 +11,24 @@ export class CardService {
 
   isManagerActive:Boolean = false;
 
-  constructor() { }
+  constructor(private storageService:StorageService) { }
 
   getCardsByListId(listId:number):Observable<Card[]>{
-  	console.log("Fetching Cards By List : "+listId);
-    this.initialize();
-  	return of(this.mockCardArray.filter(card => card.listId == listId));
+  	return of(<Card[]>this.storageService.getAll(StorageService.CARD_ENTITY,String(listId)));
   }
 
   addNewCard(listId:number, title:string, description:string):Observable<Card>{
-    let card = {
-      id: this.mockCardArray.length+1,
-      title: title,
-      listId: listId,
-      description: description
-    }
-    this.mockCardArray.push(card);
-    return of(card);
+    let newCard = new Card();
+    newCard.title = title;
+    newCard.description = description;
+    newCard.listId = listId;
+    return of(<Card>this.storageService.saveOrUpdate(StorageService.CARD_ENTITY,newCard));
   }
 
   deleteCard(id:Number):Observable<Card>{
-    let card = this.mockCardArray.find(c => c.id === id);
-    this.mockCardArray = this.mockCardArray.filter(c => c.id != id);
-    return of(card);
+    // let card = this.mockCardArray.find(c => c.id === id);
+    // this.mockCardArray = this.mockCardArray.filter(c => c.id != id);
+    return of(null);
   }
 
   activateManager():void{
@@ -43,37 +39,4 @@ export class CardService {
     this.isManagerActive = false;
   }
 
-
-  mockCardArray:Card[];
-
-  initialize() {
-    if(this.mockCardArray === undefined || this.mockCardArray.length == 0){
-      this.mockCardArray = [
-       {
-          id: 0,
-          listId: 0,
-          title: "Card 1",
-          description: "Test Card" 
-        },
-        {
-          id: 2,
-          listId: 1,
-          title: "Card 1a",
-          description: "Test Card" 
-        },
-        {
-          id: 4,
-          listId: 1,
-          title: "Card 2a",
-          description: "Test Card" 
-        },
-        {
-          id: 7,
-          listId: 0,
-          title: "Card 2",
-          description: "Test Card" 
-        }
-      ];
-    }
-  }
 }
