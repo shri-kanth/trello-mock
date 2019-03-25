@@ -25,6 +25,15 @@ export class CardService {
     return of(<Card>this.storageService.saveOrUpdate(StorageService.CARD_ENTITY,newCard));
   }
 
+  updateCardPosition(card:Card,
+    prevoiusListId:number,presentListId:number,
+    previousIndex:number,presentIndex:number):Observable<Card>{
+    return of(<Card>this.storageService
+                          .updatePosition(StorageService.CARD_ENTITY,
+                            card,String(prevoiusListId),String(presentListId),
+                            previousIndex,presentIndex));
+  }
+
   deleteCard(card:Card):Observable<void>{
     return of(this.storageService.delete(StorageService.CARD_ENTITY,card));
   }

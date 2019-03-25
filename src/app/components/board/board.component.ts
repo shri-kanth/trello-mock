@@ -55,9 +55,12 @@ export class BoardComponent implements OnInit {
   }
 
   dropList(event: CdkDragDrop<List[]>) {
-    console.log("TRANFER LIST");
-    console.log(event);
-    moveItemInArray(this.lists, event.previousIndex, event.currentIndex);
+    let list = <List> event.previousContainer.data[event.previousIndex];
+    let previousIndex = event.previousIndex;
+    let presentIndex = event.currentIndex;
+    this.listService.updateListPosition(list,previousIndex,presentIndex).subscribe(() => {
+      moveItemInArray(this.lists, event.previousIndex, event.currentIndex);
+    })
   }
 
   getListIdArray():Number[]{

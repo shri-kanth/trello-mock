@@ -66,23 +66,33 @@ export class ListComponent implements OnInit {
   }
   
   dropCard(event: CdkDragDrop<Card[]>) {
-    if (event.previousContainer === event.container) {
-      console.log("TRANSFER CARD WITHIN");
-      console.log(event);
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      console.log("TRANSFER CARD ACROSS");
-      console.log(event);
-      transferArrayItem(event.previousContainer.data,
-                        event.container.data,
-                        event.previousIndex,
-                        event.currentIndex);
+    let card = <Card> event.previousContainer.data[event.previousIndex];
+    let previousListId = Number(this.getIdFromListId(event.previousContainer.id));
+    let presentListId = Number(this.getIdFromListId(event.container.id));
+    let previousIndex = event.previousIndex;
+    let presentIndex = event.currentIndex;
+    this.cardService.updateCardPosition(card,previousListId,presentListId,previousIndex,presentIndex).subscribe(() => {
+      if (event.previousContainer === event.container) {
+        console.log(event);
+        moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
         
-    }
+      } else {
+        console.log(event);
+        transferArrayItem(event.previousContainer.data,
+                          event.container.data,
+                          event.previousIndex,
+                          event.currentIndex);
+          
+      }
+    });
   }
 
   getListId():string{
     return this.LIST_ID_PREFIX+'-'+this.list.id;
+  }
+
+  getIdFromListId(listId:String):string{
+    return listId.split("-").pop();
   }
 
   getConnectedList():string[]{

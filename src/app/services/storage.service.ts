@@ -77,16 +77,33 @@ export class StorageService {
     localStorage.removeItem(this.getKey(entityType,entity));
   }
 
+  updatePosition(entityType:string,entity:Entity,
+    previousParentId:string,presentParentId:string,
+    previousIndex:number,presentIndex:number):Entity{
+
+      //Clear Previous Parent Index
+      let previousIndexArray = this.getIndex(entityType,previousParentId);
+      previousIndexArray.splice(previousIndex,1); 
+      this.saveOrUpdateIndex(this.getIndexKey(entityType,previousParentId),previousIndexArray);
+      
+      //Update Present Parent Index
+      let presentIndexArray = this.getIndex(entityType,presentParentId);
+      presentIndexArray.splice(presentIndex, 0, String(entity.id));    
+      this.saveOrUpdateIndex(this.getIndexKey(entityType,presentParentId),presentIndexArray);
+
+      return this.saveOrUpdate(entityType,entity);
+  }
+
   private initializeFirstTimeUser():void{
     let board = this.initializeBoardSetUp("Sample Board");
     
     let list1 = this.initializeListSetUp("Sample List 1",board.id);
-    let card1 = this.initializeCardSetUp("Card 1","Test Description",list1.id);
-    let card2 = this.initializeCardSetUp("Card 2","Test Description",list1.id);
+    let card1 = this.initializeCardSetUp("Sample Card 1","Sample Description",list1.id);
+    let card2 = this.initializeCardSetUp("Sample Card 2","Sample Description",list1.id);
     
     let list2 = this.initializeListSetUp("Sample List 2",board.id);
-    let card1a = this.initializeCardSetUp("Card 1a","Test Description",list1.id);
-    let card2a = this.initializeCardSetUp("Card 2a","Test Description",list1.id);
+    let card1a = this.initializeCardSetUp("Sample Card 1a","Sample Description",list2.id);
+    let card2a = this.initializeCardSetUp("Sample Card 2a","Sample Description",list2.id);
   }
 
   private initializeBoardSetUp(title:string):Board{
@@ -124,7 +141,7 @@ export class StorageService {
         return;
     }else{
       index.push(String(entity.id));
-      localStorage.setItem(this.getIndexKey(entityType,this.getParentId(entityType,entity),),JSON.stringify(index));
+      this.saveOrUpdateIndex(this.getIndexKey(entityType,this.getParentId(entityType,entity)),index)
     }
   }
 
@@ -132,10 +149,14 @@ export class StorageService {
     let index = this.getIndex(entityType,this.getParentId(entityType,entity));
     if(index.indexOf(String(entity.id)) > -1) {
       index.splice(index.indexOf(String(entity.id)),1);
-      localStorage.setItem(this.getIndexKey(entityType,this.getParentId(entityType,entity)),JSON.stringify(index));
+      this.saveOrUpdateIndex(this.getIndexKey(entityType,this.getParentId(entityType,entity)),index)
     }else{
       return;
     }
+  }
+
+  private saveOrUpdateIndex(indexKey:string,index:string[]):void{
+    localStorage.setItem(indexKey,JSON.stringify(index));
   }
 
   private getParentId(entityType:string,entity:Entity):string{

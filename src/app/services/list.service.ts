@@ -26,6 +26,15 @@ export class ListService {
     return of(<List>this.storageService.saveOrUpdate(StorageService.LIST_ENTITY,newList));
   }
 
+  updateListPosition(list:List,
+    previousIndex:number,presentIndex:number):Observable<List>{
+    return of(<List>this.storageService
+                          .updatePosition(StorageService.LIST_ENTITY,
+                            list,String(list.boardId),String(list.boardId),
+                            previousIndex,presentIndex));
+  }
+
+
   deleteList(list:List):Observable<void>{
     return of(this.storageService.delete(StorageService.LIST_ENTITY,list));
   }
