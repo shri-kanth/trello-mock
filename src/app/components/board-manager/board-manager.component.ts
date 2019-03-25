@@ -9,6 +9,8 @@ import { BoardService } from  '../../services/board.service';
 })
 export class BoardManagerComponent implements OnInit {
 
+  @Output() boardManagerEventEmitter: EventEmitter<any> = new EventEmitter();
+
   title:string;
 
   constructor(private boardService:BoardService) { }
@@ -20,7 +22,7 @@ export class BoardManagerComponent implements OnInit {
     
     this.boardService
       .addNewBoard(this.title)
-      .subscribe();
+      .subscribe(newBoard => this.boardManagerEventEmitter.emit(newBoard));
 
     this.boardService.deActivateManager();
   }

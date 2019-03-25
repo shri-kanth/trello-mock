@@ -24,4 +24,16 @@ export class PersonalBoardsComponent implements OnInit {
     this.boardService.activateManager();
   }
 
+  boardManagerEventEmitter(boardEvent: any){
+    console.log("Recieved Board Message");
+    this.boardService.getAllBoards().subscribe(boards => {
+      this.boards = boards;
+    });
+  }
+
+  isManagerActive():Boolean{
+    return this.boardService.isManagerActive;
+  }
+  
+
 }

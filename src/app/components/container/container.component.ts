@@ -27,8 +27,4 @@ export class ContainerComponent implements OnInit {
     this.isProfilePopUpActive = false;
   }
 
-  isManagerActive():Boolean{
-    return this.boardService.isManagerActive;
-  }
-
 }
