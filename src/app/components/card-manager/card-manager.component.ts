@@ -37,7 +37,7 @@ export class CardManagerComponent implements OnInit {
   onCancel(){
     this.title = undefined;
     this.description = undefined;
-    this.cardManagerCancelEventEmitter.emit("canceled");
+    this.cardManagerCancelEventEmitter.emit(null);
   }
 
 }

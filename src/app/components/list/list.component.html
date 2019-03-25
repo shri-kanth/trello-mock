@@ -9,6 +9,7 @@
       cdkDropList
       id="{{getListId()}}"
       [cdkDropListData]="cards"
+      class="card-list-container"
       [cdkDropListConnectedTo]="getConnectedList()"
       (cdkDropListDropped)="dropCard($event)">
       <app-card 

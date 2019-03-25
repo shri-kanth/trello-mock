@@ -1,6 +1,5 @@
 <div>
-  <form class="form"
-        (ngSubmit)="onSubmit()">
+  <form class="form">
       <div>
         <input type="text" 
          name="title" 
@@ -17,11 +16,11 @@
         <input type="submit" 
                 value="Submit" 
                 class="btn"
-                (ngSubmit)="onSubmit()">
+                (click)="onSubmit()">
         <input type="submit" 
                value="Cancel"
                class="btn" 
-               (ngSubmit)="onCancel()">
+               (click)="onCancel()">
        </div>
   </form>
 </div>
