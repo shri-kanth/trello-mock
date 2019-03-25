@@ -43,13 +43,19 @@
     line-height: 20px;
 }
 
+.disabled-button {
+    background-color: #ebeef0;
+    box-shadow: none;
+    border: none;
+    color: #a6b3ba;
+    cursor: not-allowed;
+}
+
 .create-board-form>button{
     margin-bottom: 8px;
-    background-color: #5aac44;
+    /*background-color: #5aac44;*/
     box-shadow: 0 1px 0 0 #3f6f21;
     border: none;
-    color: #fff;
-    cursor: pointer;
     display: inline-block;
     font-weight: 700;
     line-height: 20px;

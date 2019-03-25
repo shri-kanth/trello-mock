@@ -7,12 +7,12 @@
             <fa-icon [icon]="['fas','times']"></fa-icon>
           </button>
           <div>
-            <input type="text" name="title" [(ngModel)]="title" placeholder="Add Board title">  
+            <input class="subtle-input" type="text" name="title" [(ngModel)]="title" placeholder="Add Board title">  
           </div>
         </div>
         </div>
-        <button type="submit" (click)="onSubmit()">
-          <span>Create Board</span>
+        <button class="btn btn-success" [disabled]="!title"  [class.disabled-button]="!title"  type="submit" (click)="onSubmit()">
+          Create Board
         </button>
       </form>
   </div>

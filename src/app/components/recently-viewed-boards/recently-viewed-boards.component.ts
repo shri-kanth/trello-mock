@@ -16,7 +16,7 @@ export class RecentlyViewedBoardsComponent implements OnInit {
 
   ngOnInit() {
     this.boardService.getRecentlyViewedBoards().subscribe(boards => {
-      this.recentlyViewedBoards = boards;
+      this.recentlyViewedBoards = boards.slice(0, 4);
     });
   }
 
