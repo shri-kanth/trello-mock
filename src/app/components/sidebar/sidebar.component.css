@@ -1,0 +1,31 @@
+.nav-section-item {
+    padding: 2px 2px 2px 0px;
+    border-radius: 4px;
+    font-family: Helvetica Neue,Arial,Helvetica,sans-serif;
+    font-size: 14px;
+    font-weight: 700; 
+    margin-bottom: 2px;
+
+}
+
+.nav-section-item:hover {
+    background-color: rgba(9,45,66,.13);
+}
+
+.nav-section-header {
+    padding: 8px;
+}
+
+.boards-item{
+    background-color: #e4f0f6;
+    color: #026aa7;
+}
+
+.boards-item:hover{
+    background-color: #e4f0f6;
+}
+
+.team-item{
+    font-weight: 400;
+}
+

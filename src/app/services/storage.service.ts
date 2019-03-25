@@ -72,6 +72,11 @@ export class StorageService {
     return entityArray;
   }
 
+  delete(entityType:string,entity:Entity):void{
+    this.removeFromIndex(entityType,entity);
+    localStorage.removeItem(this.getKey(entityType,entity));
+  }
+
   private initializeFirstTimeUser():void{
     let board = this.initializeBoardSetUp("Sample Board");
     
@@ -120,6 +125,16 @@ export class StorageService {
     }else{
       index.push(String(entity.id));
       localStorage.setItem(this.getIndexKey(entityType,this.getParentId(entityType,entity),),JSON.stringify(index));
+    }
+  }
+
+  private removeFromIndex(entityType:string,entity:Entity):void{
+    let index = this.getIndex(entityType,this.getParentId(entityType,entity));
+    if(index.indexOf(String(entity.id)) > -1) {
+      index.splice(index.indexOf(String(entity.id)),1);
+      localStorage.setItem(this.getIndexKey(entityType,this.getParentId(entityType,entity)),JSON.stringify(index));
+    }else{
+      return;
     }
   }
 

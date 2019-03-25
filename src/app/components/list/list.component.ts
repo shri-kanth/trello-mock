@@ -5,6 +5,7 @@ import { List } from '../../models/List';
 import { Card } from '../../models/Card';
 
 import { CardService } from '../../services/card.service';
+import { ListService } from 'src/app/services/list.service';
 
 @Component({
   selector: 'app-list',
@@ -23,7 +24,10 @@ export class ListComponent implements OnInit {
 
   private LIST_ID_PREFIX:string = 'list-id';
   
-  constructor(private cardService:CardService) { }
+  constructor(
+    private listService:ListService,
+    private cardService:CardService
+  ) { }
 
   ngOnInit() {
     this.isAddCardManagerActive = false;
@@ -37,6 +41,11 @@ export class ListComponent implements OnInit {
 
   onAddNewCard() {
     this.isAddCardManagerActive = true; 
+  }
+
+  onDelete(){
+    this.cards.forEach(card => this.cardService.deleteCard(card));
+    this.listService.deleteList(this.list);
   }
 
   cardManagerEventEmitter(cardEvent){
@@ -58,12 +67,17 @@ export class ListComponent implements OnInit {
   
   dropCard(event: CdkDragDrop<Card[]>) {
     if (event.previousContainer === event.container) {
+      console.log("TRANSFER CARD WITHIN");
+      console.log(event);
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
+      console.log("TRANSFER CARD ACROSS");
+      console.log(event);
       transferArrayItem(event.previousContainer.data,
                         event.container.data,
                         event.previousIndex,
                         event.currentIndex);
+        
     }
   }
 

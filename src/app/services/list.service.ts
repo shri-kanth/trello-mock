@@ -26,10 +26,8 @@ export class ListService {
     return of(<List>this.storageService.saveOrUpdate(StorageService.LIST_ENTITY,newList));
   }
 
-  deleteList(id:Number):Observable<List>{
-    // let list = this.mockListArray.find(l => l.id === id);
-    // this.mockListArray = this.mockListArray.filter(l => l.id != id);
-    return of(null);
+  deleteList(list:List):Observable<void>{
+    return of(this.storageService.delete(StorageService.LIST_ENTITY,list));
   }
 
   activateManager():void{

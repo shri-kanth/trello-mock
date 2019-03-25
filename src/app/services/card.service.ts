@@ -25,10 +25,8 @@ export class CardService {
     return of(<Card>this.storageService.saveOrUpdate(StorageService.CARD_ENTITY,newCard));
   }
 
-  deleteCard(id:Number):Observable<Card>{
-    // let card = this.mockCardArray.find(c => c.id === id);
-    // this.mockCardArray = this.mockCardArray.filter(c => c.id != id);
-    return of(null);
+  deleteCard(card:Card):Observable<void>{
+    return of(this.storageService.delete(StorageService.CARD_ENTITY,card));
   }
 
   activateManager():void{

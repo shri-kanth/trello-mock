@@ -1,5 +1,8 @@
 <div class="list-container">
   <div class="list-header">
+      <button type="submit" class="un-styled-button hide-dialog-trigger" (click)="onDelete()">
+          <fa-icon [icon]="['fas','times']"></fa-icon>
+      </button>
     <h2>{{ list.title }}</h2>
   </div>  
   <div
