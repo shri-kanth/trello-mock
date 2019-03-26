@@ -40,7 +40,11 @@ export class ListComponent implements OnInit {
   }
 
   onAddNewCard() {
-    this.isAddCardManagerActive = true; 
+    this.cardService.activateManager(this.list.id);
+  }
+
+  isManagerActive():Boolean{
+    return this.cardService.isManagerActive(this.list.id);
   }
 
   onDelete(){
@@ -49,19 +53,18 @@ export class ListComponent implements OnInit {
   }
 
   cardManagerEventEmitter(cardEvent){
-    if(cardEvent && cardEvent.listId == this.list.id){   
-      this.cardService
+    if(cardEvent){
+      if(cardEvent.listId == this.list.id){
+        this.cardService
       .getCardsByListId(this.list.id)
       .subscribe(cards => 
         {
           this.cards = cards;
         });
       this.isAddCardManagerActive = false;
-      console.log(this);
+      }   
     }else{
-      console.log("Recieved Cancel List Message");
       this.isAddCardManagerActive = false;
-      console.log(this);
     }
   }
   
@@ -73,11 +76,8 @@ export class ListComponent implements OnInit {
     let presentIndex = event.currentIndex;
     this.cardService.updateCardPosition(card,previousListId,presentListId,previousIndex,presentIndex).subscribe(() => {
       if (event.previousContainer === event.container) {
-        console.log(event);
         moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-        
       } else {
-        console.log(event);
         transferArrayItem(event.previousContainer.data,
                           event.container.data,
                           event.previousIndex,

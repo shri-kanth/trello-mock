@@ -12,16 +12,18 @@
 			[listIdArray]="getListIdArray()"
 			cdkDrag>
 		</app-list>
-		<div class="new-list" 
-			(click)="onAddNewList()">
+		<div class="new-list">
 			<fa-icon [icon]='["fas","plus"]'></fa-icon>
-			<span>Add another list</span>
-			<app-list-manager
+			<span (click)="onAddNewList()" 
+				*ngIf="!isManagerActive()">
+				Add another list
+			</span>
+			<app-list-manager *ngIf="isManagerActive()" 
 				[board]="board"
-				*ngIf = "isListManagerActive" 
 				(listManagerEventEmitter)="listManagerEventEmitter($event)">
 			</app-list-manager>
 		</div>
+		
 	</div>
 </div>
 

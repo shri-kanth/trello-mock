@@ -18,12 +18,13 @@
         cdkDrag>
       </app-card>
   </div>
-  <div class="new-card" 
-    (click)="onAddNewCard()">
+  <div class="new-card">
       <fa-icon [icon]='["fas","plus"]'></fa-icon>
-      <span>Add another card</span>
+      <span (click)="onAddNewCard()" *ngIf="!isManagerActive()" >
+        Add another card
+      </span>
     <app-card-manager
-      *ngIf="isAddCardManagerActive" 
+      *ngIf="isManagerActive()" 
       (cardManagerSubmitEventEmitter)="cardManagerEventEmitter($event)"
       (cardManagerCancelEventEmitter)="cardManagerEventEmitter($event)"
       [list]="list"> 

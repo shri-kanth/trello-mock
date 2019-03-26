@@ -32,12 +32,14 @@ export class CardManagerComponent implements OnInit {
       .addNewCard(this.list.id,this.title,this.description)
       .subscribe(card => newCard = card);
     this.cardManagerSubmitEventEmitter.emit(newCard);
+    this.cardService.deActivateManager(this.list.id);
   }
 
   onCancel(){
     this.title = undefined;
     this.description = undefined;
     this.cardManagerCancelEventEmitter.emit(null);
+    this.cardService.deActivateManager(this.list.id);
   }
 
 }

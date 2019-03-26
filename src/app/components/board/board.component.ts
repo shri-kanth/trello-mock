@@ -40,20 +40,22 @@ export class BoardComponent implements OnInit {
   }
 
   onAddNewList() {
-    this.isListManagerActive = true; 
+    this.listService.activateManager(this.board.id);
+  }
+
+  isManagerActive():Boolean{
+    return this.listService.isManagerActive(this.board.id);
   }
 
   listManagerEventEmitter(listEvent: any){
-    console.log("Recieved List Message");
     if(listEvent){
-      if(listEvent.boardId && listEvent.boardId == this.board.id){
+      if((listEvent.boardId == this.board.id)){
         this.listService.getListsByBoardId(this.board.id).subscribe(lists =>{
           this.lists = lists;
         });
         this.isListManagerActive = false; 
       }   
     }else{
-      console.log("Recieved Cancel List Message");
       this.isListManagerActive = false; 
     }
   }

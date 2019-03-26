@@ -22,17 +22,17 @@ export class ListManagerComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit() {
+  onSubmit():void {
     this.listService
       .addNewList(this.board.id,this.title)
       .subscribe(newList => this.listManagerEventEmitter.emit(newList));
-    console.log("List Create Event Emitted");
+    this.listService.deActivateManager(this.board.id);
   }
 
-  onCancel(){
+  onCancel():void{
     this.title = undefined;
     this.listManagerEventEmitter.emit(null);
-    console.log("Cancel List Create Event Emitted");
+    this.listService.deActivateManager(this.board.id);
   }
 
 }

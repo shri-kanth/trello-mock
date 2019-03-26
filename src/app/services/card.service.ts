@@ -9,7 +9,7 @@ import { StorageService } from './storage.service';
 })
 export class CardService {
 
-  isManagerActive:Boolean = false;
+  activeCardManagerListIdArray:Number[];
 
   constructor(private storageService:StorageService) { }
 
@@ -38,12 +38,37 @@ export class CardService {
     return of(this.storageService.delete(StorageService.CARD_ENTITY,card));
   }
 
-  activateManager():void{
-    this.isManagerActive = true;
+  activateManager(listId:number){
+    let alreadyPresent = false;
+    if(this.activeCardManagerListIdArray){
+      let index = this.activeCardManagerListIdArray.indexOf(listId); 
+      if(index > -1){
+        alreadyPresent =true;
+      }
+    }else{
+      this.activeCardManagerListIdArray = [];
+    }
+    if(!alreadyPresent){
+      this.activeCardManagerListIdArray.push(listId);
+    }
   }
 
-  deActivateManager():void{
-    this.isManagerActive = false;
+  deActivateManager(listId:number){
+    if(this.activeCardManagerListIdArray){
+      let index = this.activeCardManagerListIdArray.indexOf(listId); 
+      if(index > -1){
+        this.activeCardManagerListIdArray.splice(index,1);
+      }
+    }
+  }
+
+  isManagerActive(listId:number){
+    if(this.activeCardManagerListIdArray){
+      return this.activeCardManagerListIdArray.indexOf(listId) > -1;
+    }else{
+      return false;
+    }
+    
   }
 
 }
