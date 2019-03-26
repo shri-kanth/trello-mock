@@ -1,20 +1,15 @@
-<div>
-  <form class="form" 
-  		(ngSubmit)="onSubmit()">
-      <div>
-        <input type="text" 
-         name="title" 
-         [(ngModel)]="title" 
-         placeholder="Add List title">
-       </div>
-  	   <div>
-         <input type="submit" 
-         value="Submit" 
-         class="btn">
-        <input type="button" 
-               value="Cancel"
-               class="btn" 
-               (click)="onCancel()">
-       </div>
-  </form>  
+<div class="container">
+  <div>
+    <input type="text" 
+      name="title" 
+      [(ngModel)]="title"
+      class="input" 
+      placeholder="Add List title">
+    </div>
+    <div class="buttons-container">
+      <button  class="add-button" (click)="onSubmit()"> 
+        <span>Add List</span>
+      </button>
+      <fa-icon [icon]="['fas','times']" (click)="onCancel()"></fa-icon>
+    </div>
 </div>

@@ -8,6 +8,7 @@ import { ListService } from '../../services/list.service';
 
 import { Board } from '../../models/Board';
 import { List } from '../../models/List';
+import { NgOnChangesFeature } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-board',
@@ -20,7 +21,7 @@ export class BoardComponent implements OnInit {
 
   lists:List[];
 
-  isAddListManagerActive:Boolean;
+  isListManagerActive:Boolean;
 
   constructor(
   	private route: ActivatedRoute,
@@ -31,7 +32,7 @@ export class BoardComponent implements OnInit {
 
   ngOnInit() {	
   	const id = this.route.snapshot.paramMap.get('id');
-    this.isAddListManagerActive = false;
+    this.isListManagerActive = false;
     this.boardService.getBoardById(Number(id)).subscribe(board => this.board = board);
     this.listService.getListsByBoardId(this.board.id).subscribe(lists =>{
         this.lists = lists;
@@ -39,18 +40,21 @@ export class BoardComponent implements OnInit {
   }
 
   onAddNewList() {
-    this.isAddListManagerActive = true; 
+    this.isListManagerActive = true; 
   }
 
   listManagerEventEmitter(listEvent: any){
     console.log("Recieved List Message");
-    if(listEvent && listEvent.boardId == this.board.id){
-      this.listService.getListsByBoardId(this.board.id).subscribe(lists =>{
-        this.lists = lists;
-      });   
-    }else if(listEvent === undefined){
+    if(listEvent){
+      if(listEvent.boardId && listEvent.boardId == this.board.id){
+        this.listService.getListsByBoardId(this.board.id).subscribe(lists =>{
+          this.lists = lists;
+        });
+        this.isListManagerActive = false; 
+      }   
+    }else{
       console.log("Recieved Cancel List Message");
-      this.isAddListManagerActive = false; 
+      this.isListManagerActive = false; 
     }
   }
 

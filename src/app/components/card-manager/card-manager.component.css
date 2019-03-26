@@ -1,0 +1,66 @@
+.container{
+    position: relative;
+    top:  -32px;
+    left: -20px;
+}
+
+.add-card-input{
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(9,45,66,.25);
+    cursor: pointer;
+    display: block;
+    margin-bottom: 8px;
+    width: 260px;
+    max-width: 300px;
+    min-height: 20px;
+    position: relative;
+    text-decoration: none;
+    z-index: 0;
+    padding: 6px 8px 2px;
+    margin-right: 4px;
+}
+
+.add-card-input input{
+    border:none;
+    clear: both;
+    display: block;
+    margin: 0 0 4px;
+    overflow: hidden;
+    text-decoration: none;
+    word-wrap: break-word;
+    color: #17394d;
+}
+
+.buttons-container {
+    height: 32px;
+    transition: margin 85ms ease-in,height 85ms ease-in;
+    margin: 4px 0 0;
+    vertical-align: top;
+}
+
+.add-button{
+    background-color: #5aac44;
+    box-shadow: 0 1px 0 0 #3f6f21;
+    border: none;
+    color: #fff;
+    border-radius: 3px;
+    min-height: 30px;
+    height: 30px;
+    margin-top: 0;
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+    cursor: pointer;
+    font-weight: 700;
+    line-height: 20px;
+    padding: 6px 12px;
+    text-align: center;
+}
+
+fa-icon  {
+    color: #798d99;
+    font-size: 16px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}

@@ -24,11 +24,11 @@
 	margin-right: 8px;
 	box-sizing: border-box;
 	display: inline-block;
+	position: relative;
 	vertical-align: top;
 	white-space: nowrap;
 	border-radius: 3px;
-	height: auto;
-	min-height: 32px;
+	height: 32px;
 	padding: 4px;
 }
 

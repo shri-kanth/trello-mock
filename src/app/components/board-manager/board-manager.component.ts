@@ -11,6 +11,8 @@ export class BoardManagerComponent implements OnInit {
 
   title:string;
 
+  @Output() boardManagerEventEmitter: EventEmitter<any> = new EventEmitter();
+
   constructor(private boardService:BoardService) { }
 
   ngOnInit() {
@@ -20,13 +22,14 @@ export class BoardManagerComponent implements OnInit {
     
     this.boardService
       .addNewBoard(this.title)
-      .subscribe();
+      .subscribe(newBoard => this.boardManagerEventEmitter.emit(newBoard));
 
     this.boardService.deActivateManager();
   }
 
   onCancel(){
     this.title = undefined;
+    this.boardManagerEventEmitter.emit(null);
     this.boardService.deActivateManager();
   }
 

@@ -1,26 +1,15 @@
-<div>
-  <form class="form">
-      <div>
+<div class="container">
+      <div class="add-card-input">
         <input type="text" 
          name="title" 
          [(ngModel)]="title" 
          placeholder="Add Card title">
       </div>
-      <div>
-        <input type="text" 
-         name="description" 
-         [(ngModel)]="description" 
-         placeholder="Add Card description">
-      </div>
-  	   <div>
-        <input type="submit" 
-                value="Submit" 
-                class="btn"
+  	   <div class="buttons-container">
+        <button class="add-button"
                 (click)="onSubmit()">
-        <input type="submit" 
-               value="Cancel"
-               class="btn" 
-               (click)="onCancel()">
+          <span>Add Card</span>
+       </button>
+        <fa-icon [icon]="['fas','times']" (click)="onCancel()"></fa-icon>
        </div>
-  </form>
 </div>

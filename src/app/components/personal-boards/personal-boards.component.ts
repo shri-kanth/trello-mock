@@ -24,4 +24,16 @@ export class PersonalBoardsComponent implements OnInit {
     this.boardService.activateManager();
   }
 
+  isManagerActive():Boolean{
+    return this.boardService.isManagerActive;
+  }
+
+  boardManagerEventEmitter(newBoardEvent:any){
+    if(newBoardEvent){
+      this.boardService.getAllBoards().subscribe(boards => {
+        this.boards = boards;
+      });
+    }
+  }
+
 }

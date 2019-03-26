@@ -12,7 +12,7 @@ import { Board } from '../../models/Board';
 export class ListManagerComponent implements OnInit {
 
   @Input() board:Board;
-  
+
   @Output() listManagerEventEmitter: EventEmitter<any> = new EventEmitter();
  
   title:string; 
@@ -31,7 +31,7 @@ export class ListManagerComponent implements OnInit {
 
   onCancel(){
     this.title = undefined;
-    this.listManagerEventEmitter.emit(undefined);
+    this.listManagerEventEmitter.emit(null);
     console.log("Cancel List Create Event Emitted");
   }
 

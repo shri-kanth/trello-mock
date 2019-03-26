@@ -15,10 +15,10 @@
 		<div class="new-list" 
 			(click)="onAddNewList()">
 			<fa-icon [icon]='["fas","plus"]'></fa-icon>
-            <span>Add another list</span>
+			<span>Add another list</span>
 			<app-list-manager
-				*ngIf="isAddListManagerActive" 
 				[board]="board"
+				*ngIf = "isListManagerActive" 
 				(listManagerEventEmitter)="listManagerEventEmitter($event)">
 			</app-list-manager>
 		</div>
