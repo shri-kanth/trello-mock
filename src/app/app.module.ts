@@ -8,25 +8,25 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
+import { HeaderComponent } from './components/common/header/header.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { BoardComponent } from './components/board/board.component';
-import { ListComponent } from './components/list/list.component';
-import { CardComponent } from './components/card/card.component';
+import { ListComponent } from './components/board/list/list.component';
+import { CardComponent } from './components/board/list/card/card.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
-import { AddBoardComponent } from './components/add-board/add-board.component';
-import { AddListComponent } from './components/add-list/add-list.component';
-import { AddCardComponent } from './components/add-card/add-card.component';
+import { AddBoardComponent } from './components/common/add-board/add-board.component';
+import { AddListComponent } from './components/board/add-list/add-list.component';
+import { AddCardComponent } from './components/board/list/add-card/add-card.component';
 import { FontAwesomeIconLoader } from './utils/font-awesome-icon-loader';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { RecentlyViewedBoardsComponent } from './components/recently-viewed-boards/recently-viewed-boards.component';
-import { PersonalBoardsComponent } from './components/personal-boards/personal-boards.component';
-import { CreatePopUpComponent } from './components/create-pop-up/create-pop-up.component';
-import { BoardsPopUpComponent } from './components/boards-pop-up/boards-pop-up.component';
-import { InfoPopUpComponent } from './components/info-pop-up/info-pop-up.component';
-import { ProfilePopUpComponent } from './components/profile-pop-up/profile-pop-up.component';
-import { NotificationPopUpComponent } from './components/notification-pop-up/notification-pop-up.component';
+import { SidebarComponent } from './components/landing-page/sidebar/sidebar.component';
+import { RecentlyViewedBoardsComponent } from './components/landing-page/recently-viewed-boards/recently-viewed-boards.component';
+import { PersonalBoardsComponent } from './components/landing-page/personal-boards/personal-boards.component';
+import { CreatePopUpComponent } from './components/common/create-pop-up/create-pop-up.component';
+import { BoardsPopUpComponent } from './components/common/boards-pop-up/boards-pop-up.component';
+import { InfoPopUpComponent } from './components/common/info-pop-up/info-pop-up.component';
+import { ProfilePopUpComponent } from './components/common/profile-pop-up/profile-pop-up.component';
+import { NotificationPopUpComponent } from './components/common/notification-pop-up/notification-pop-up.component';
 
 @NgModule({
   declarations: [

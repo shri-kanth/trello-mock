@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output} from '@angular/core';
 
-import { BoardService } from  '../../services/board.service';
+import { BoardService } from  'src/app/services/board.service';
 
 @Component({
   selector: 'app-add-board',

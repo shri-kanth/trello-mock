@@ -1,8 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
-import { ListService } from  '../../services/list.service';
-import { List } from '../../models/List';
-import { Board } from '../../models/Board';
+import { ListService } from  'src/app/services/list.service';
+import { Board } from 'src/app/models/Board';
 
 @Component({
   selector: 'app-add-list',

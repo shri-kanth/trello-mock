@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
-import { CardService } from  '../../services/card.service';
-import { List } from '../../models/List';
-import { Card } from '../../models/Card';
+import { CardService } from  'src/app/services/card.service';
+import { List } from 'src/app/models/List';
+import { Card } from 'src/app/models/Card';
 
 @Component({
   selector: 'app-add-card',
@@ -23,7 +23,7 @@ export class AddCardComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  
   onSubmit() {
     let newCard;
     this.cardService

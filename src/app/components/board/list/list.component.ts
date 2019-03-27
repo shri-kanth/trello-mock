@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
-import { List } from '../../models/List';
-import { Card } from '../../models/Card';
+import { List } from 'src/app/models/List';
+import { Card } from 'src/app/models/Card';
 
-import { CardService } from '../../services/card.service';
+import { CardService } from 'src/app/services/card.service';
 import { ListService } from 'src/app/services/list.service';
 
 @Component({
