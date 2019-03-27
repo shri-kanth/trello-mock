@@ -9,8 +9,6 @@ import { StorageService } from './storage.service';
 })
 export class BoardService {
 
-  isManagerActive:Boolean = false;
-
   constructor(
     private storageService:StorageService
   ) { }
@@ -38,14 +36,6 @@ export class BoardService {
     // let board = this.mockBoardArray.find(b => b.id === id);
     // this.mockBoardArray = this.mockBoardArray.filter(b => b.id != id);
     return of(board);
-  }
-
-  activateManager():void{
-    this.isManagerActive = true;
-  }
-
-  deActivateManager():void{
-    this.isManagerActive = false;
   }
 
 }

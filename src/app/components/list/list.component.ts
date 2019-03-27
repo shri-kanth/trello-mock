@@ -18,7 +18,7 @@ export class ListComponent implements OnInit {
 
   @Input() listIdArray: Number[];
 
-  isAddCardManagerActive:Boolean;
+  isAddCardActive:Boolean;
 
   cards:Card[];
 
@@ -30,7 +30,7 @@ export class ListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.isAddCardManagerActive = false;
+    this.isAddCardActive = false;
   	this.cardService
       .getCardsByListId(this.list.id)
       .subscribe(cards => 
@@ -40,11 +40,7 @@ export class ListComponent implements OnInit {
   }
 
   onAddNewCard() {
-    this.cardService.activateManager(this.list.id);
-  }
-
-  isManagerActive():Boolean{
-    return this.cardService.isManagerActive(this.list.id);
+    this.isAddCardActive = true;
   }
 
   onDelete(){
@@ -52,20 +48,17 @@ export class ListComponent implements OnInit {
     this.listService.deleteList(this.list);
   }
 
-  cardManagerEventEmitter(cardEvent){
+  addCardEventReciever(cardEvent){
     if(cardEvent){
       if(cardEvent.listId == this.list.id){
         this.cardService
       .getCardsByListId(this.list.id)
-      .subscribe(cards => 
-        {
+      .subscribe(cards => {
           this.cards = cards;
-        });
-      this.isAddCardManagerActive = false;
+        })
       }   
-    }else{
-      this.isAddCardManagerActive = false;
     }
+    this.isAddCardActive = false;
   }
   
   dropCard(event: CdkDragDrop<Card[]>) {

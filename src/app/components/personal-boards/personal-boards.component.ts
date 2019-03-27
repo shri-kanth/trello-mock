@@ -12,28 +12,28 @@ export class PersonalBoardsComponent implements OnInit {
 
   boards:Board[];
 
+  isAddBoardActive:Boolean;
+
   constructor(private boardService:BoardService) { }
 
   ngOnInit() {
+    this.isAddBoardActive = false;
     this.boardService.getAllBoards().subscribe(boards => {
       this.boards = boards;
     });
   }
 
   onCreateNewBoard():void{
-    this.boardService.activateManager();
+    this.isAddBoardActive = true;
   }
 
-  isManagerActive():Boolean{
-    return this.boardService.isManagerActive;
-  }
-
-  boardManagerEventEmitter(newBoardEvent:any){
+  addBoardEventReciever(newBoardEvent:any){
     if(newBoardEvent){
       this.boardService.getAllBoards().subscribe(boards => {
         this.boards = boards;
       });
     }
+    this.isAddBoardActive = false;
   }
 
 }

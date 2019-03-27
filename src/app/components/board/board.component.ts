@@ -8,7 +8,6 @@ import { ListService } from '../../services/list.service';
 
 import { Board } from '../../models/Board';
 import { List } from '../../models/List';
-import { NgOnChangesFeature } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-board',
@@ -21,7 +20,7 @@ export class BoardComponent implements OnInit {
 
   lists:List[];
 
-  isListManagerActive:Boolean;
+  isAddListActive:Boolean;
 
   constructor(
   	private route: ActivatedRoute,
@@ -32,7 +31,7 @@ export class BoardComponent implements OnInit {
 
   ngOnInit() {	
   	const id = this.route.snapshot.paramMap.get('id');
-    this.isListManagerActive = false;
+    this.isAddListActive = false;
     this.boardService.getBoardById(Number(id)).subscribe(board => this.board = board);
     this.listService.getListsByBoardId(this.board.id).subscribe(lists =>{
         this.lists = lists;
@@ -40,24 +39,18 @@ export class BoardComponent implements OnInit {
   }
 
   onAddNewList() {
-    this.listService.activateManager(this.board.id);
+    this.isAddListActive = true;
   }
 
-  isManagerActive():Boolean{
-    return this.listService.isManagerActive(this.board.id);
-  }
-
-  listManagerEventEmitter(listEvent: any){
-    if(listEvent){
-      if((listEvent.boardId == this.board.id)){
+  addListEventReciever(newList){
+    if(newList){
+      if((newList.boardId == this.board.id)){
         this.listService.getListsByBoardId(this.board.id).subscribe(lists =>{
           this.lists = lists;
-        });
-        this.isListManagerActive = false; 
+        });   
       }   
-    }else{
-      this.isListManagerActive = false; 
     }
+    this.isAddListActive = false;
   }
 
   dropList(event: CdkDragDrop<List[]>) {

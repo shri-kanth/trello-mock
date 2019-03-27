@@ -15,7 +15,7 @@
 				Create new board...
 			</div>
 		</div>
-		<app-board-manager *ngIf="isManagerActive()" 
-		(boardManagerEventEmitter)="boardManagerEventEmitter($event)"></app-board-manager>
+		<app-add-board *ngIf="isAddBoardActive" 
+		(addBoardEventEmitter)="addBoardEventReciever($event)"></app-add-board>
 	</div>		
 </div>

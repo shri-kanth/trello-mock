@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BoardManagerComponent } from './board-manager.component';
+import { AddListComponent } from './add-list.component';
 
-describe('BoardManagerComponent', () => {
-  let component: BoardManagerComponent;
-  let fixture: ComponentFixture<BoardManagerComponent>;
+describe('ListManagerComponent', () => {
+  let component: AddListComponent;
+  let fixture: ComponentFixture<AddListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BoardManagerComponent ]
+      declarations: [ AddListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BoardManagerComponent);
+    fixture = TestBed.createComponent(AddListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

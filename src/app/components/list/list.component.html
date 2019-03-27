@@ -20,14 +20,13 @@
   </div>
   <div class="new-card">
       <fa-icon [icon]='["fas","plus"]'></fa-icon>
-      <span (click)="onAddNewCard()" *ngIf="!isManagerActive()" >
+      <span (click)="onAddNewCard()" *ngIf="!isAddCardActive" >
         Add another card
       </span>
-    <app-card-manager
-      *ngIf="isManagerActive()" 
-      (cardManagerSubmitEventEmitter)="cardManagerEventEmitter($event)"
-      (cardManagerCancelEventEmitter)="cardManagerEventEmitter($event)"
+    <app-add-card
+      *ngIf="isAddCardActive" 
+      (addCardEventEmitter)="addCardEventReciever($event)"
       [list]="list"> 
-    </app-card-manager>
+    </app-add-card>
   </div>
 </div>

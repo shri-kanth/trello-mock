@@ -5,17 +5,15 @@ import { List } from '../../models/List';
 import { Card } from '../../models/Card';
 
 @Component({
-  selector: 'app-card-manager',
-  templateUrl: './card-manager.component.html',
-  styleUrls: ['./card-manager.component.css']
+  selector: 'app-add-card',
+  templateUrl: './add-card.component.html',
+  styleUrls: ['./add-card.component.css']
 })
-export class CardManagerComponent implements OnInit {
+export class AddCardComponent implements OnInit {
 
   @Input() list:List;
 
-  @Output() cardManagerSubmitEventEmitter: EventEmitter<any> = new EventEmitter();
-
-  @Output() cardManagerCancelEventEmitter: EventEmitter<any> = new EventEmitter();
+  @Output() addCardEventEmitter: EventEmitter<any> = new EventEmitter();
  
   title:string;
 
@@ -31,15 +29,13 @@ export class CardManagerComponent implements OnInit {
     this.cardService
       .addNewCard(this.list.id,this.title,this.description)
       .subscribe(card => newCard = card);
-    this.cardManagerSubmitEventEmitter.emit(newCard);
-    this.cardService.deActivateManager(this.list.id);
+    this.addCardEventEmitter.emit(newCard);
   }
 
   onCancel(){
     this.title = undefined;
     this.description = undefined;
-    this.cardManagerCancelEventEmitter.emit(null);
-    this.cardService.deActivateManager(this.list.id);
+    this.addCardEventEmitter.emit(null);
   }
 
 }

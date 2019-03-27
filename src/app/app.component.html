@@ -1,1 +1,7 @@
-<app-container></app-container>
+<app-header></app-header>
+<app-boards-pop-up *ngIf="isBoardsPopUpActive"></app-boards-pop-up>
+<app-create-pop-up *ngIf="isCreatePopUpActive"></app-create-pop-up>
+<app-info-pop-up *ngIf="isInfoPopUpActive"></app-info-pop-up>
+<app-notification-pop-up *ngIf="isNotificationPopUpActive"></app-notification-pop-up>
+<app-profile-pop-up *ngIf="isProfilePopUpActive"></app-profile-pop-up>
+<router-outlet></router-outlet>
