@@ -22,20 +22,17 @@
     white-space: nowrap;
 }
 
-.test:hover{
-    background: red;
-}
-
 .menu-item {
-    border-radius: 3px;
-    color: #f6f6f6;
-    cursor: default;
-    float: left;
-    font-size: 14px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     height: 32px;
-    line-height: 32px;
     margin: 0 4px 0 0;
     padding: 0px 8px 0px 8px;
+    border-radius: 3px;
+    color: #f6f6f6;
+    font-size: 14px;
+    line-height: 32px;
     overflow: hidden;
     position: relative;
     text-decoration: none;
@@ -54,31 +51,20 @@
     padding-right: 12px;
 }
 
-.is-favourite{
-    display: inline-block;
-    color: #f6f6f6;
-    margin: 0 4px 0 0;
-    padding: 0px 8px 0px 8px;
-}
 
 .member-avatar{
     display: inline-block;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    margin-right: 0px;
-    margin-bottom: 4px;
     height: 28px;
+    width: 28px;
+    border-radius: 25em;
     line-height: 28px;
     font-size: 12px;
     font-weight: 700;
-    border-radius: 25em;
     background-color: #dfe3e6;
     color: #17394d;
-    text-align: center;
     overflow: visible;
     position: relative;
-    width: 28px;
+    
 }
 
 .divider {

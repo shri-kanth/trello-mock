@@ -3,8 +3,8 @@
 		<app-board-menu [board]="board"></app-board-menu>
 	</div>
 	<div class="list-container-wrapper"> <!-- covers 100% of screen after app menu-->
-		<div class="relative-position-full-height">
-			<div class="absolute-position-full-surface">
+		<div class="relative-position-full-height"> <!-- Trickiest Part of Project : uses position relative to make height accessible to child -->
+			<div class="absolute-position-full-surface"> <!-- Trickiest Part of Project : uses position absolute to remove vertical scroll through overflow -->
 				<div cdkDropList 
 				[cdkDropListData]="lists"
 				cdkDropListOrientation="horizontal"

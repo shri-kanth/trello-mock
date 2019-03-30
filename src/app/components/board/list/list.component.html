@@ -4,7 +4,7 @@
           <textarea class="list-name">{{list.title}}</textarea>
       </div>
       <div class="list-menu">
-          <fa-icon [icon]='["fas","ellipsis-h"]'></fa-icon>
+          <fa-icon [icon]='["fas","ellipsis-h"]' class="icon-large"></fa-icon>
       </div>
   </div>
   <div #cardListWrapper class="card-list-wrapper fancy-scroll">
@@ -28,7 +28,7 @@
       </app-add-card>
   </div>
     <div class="new-card">
-        <fa-icon *ngIf="!isAddCardActive" [icon]='["fas","plus"]' class="icon-sm"></fa-icon>
+        <fa-icon *ngIf="!isAddCardActive" [icon]='["fas","plus"]' class="icon-small"></fa-icon>
         <span (click)="onAddNewCard()" *ngIf="!isAddCardActive" >
           Add another card
         </span>

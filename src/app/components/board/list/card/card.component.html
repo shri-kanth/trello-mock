@@ -1,6 +1,6 @@
 <div class="card-container" (mouseover)="isActive=true" (mouseout)="isActive=false">
 	<div class="card-operations" [style.visibility]="isActive ? 'visible' : 'hidden'">
-		<fa-icon [icon]="['fas','pen']"></fa-icon>
+		<fa-icon [icon]="['fas','pen']" class="icon-small"></fa-icon>
 	</div>
 	<div *ngIf="card.label" class="card-label-container"  [style.background-color]="card.labelColor" (click)="toggleCardLabelDisplay()">
 		<span *ngIf="isCardLabelDisplayActive()" class="card-label">{{card.label}}</span>
@@ -9,10 +9,10 @@
 	<div style="display:flex; flex-direction:row;justify-content:space-between;">
 		<div class="badges">
 			<div *ngIf="card.description" class="badge" title="This card has description"> 
-				<fa-icon [icon]="['fas','align-justify']" class="icon-sm"></fa-icon>
+				<fa-icon [icon]="['fas','align-justify']" class="icon-small"></fa-icon>
 			</div>
 			<div *ngIf="card.description" class="badge is-complete" title="Check-list-items"> 	
-				<fa-icon [icon]="['fas','check-square']" class="icon-sm"></fa-icon>
+				<fa-icon [icon]="['fas','check-square']" class="icon-small"></fa-icon>
 				<span class="badge-text">2/2</span>
 			</div>
 		</div>

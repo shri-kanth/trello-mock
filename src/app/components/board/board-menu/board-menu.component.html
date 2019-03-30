@@ -4,35 +4,31 @@
       <span class="board-title-text">{{board.title}}</span>
     </div>
     <div class="menu-item">
-      <div class="is-favourite icon-sm">
-          <div style="display: flex; align-items: center; justify-content: center;" class="test">
-              <fa-icon [icon]="['fas','star']" class="icon-sm"></fa-icon>
+          <div style="display: flex; align-items: center; justify-content: center;">
+              <fa-icon [icon]="['fas','star']" class="icon-small"></fa-icon>
           </div>
-        </div>
     </div>
     <div class="divider"></div>
     <div class="menu-item">
         Personal
     </div>
     <div class="divider"></div>
-    <div class="menu-item">
-        <div class="is-favourite icon-sm">
-            <div style="display: flex; align-items: center;">
-                <fa-icon [icon]="['fas','globe']" class="icon-sm"></fa-icon>
-            </div>
+    <div class="menu-item"> 
+        <div style="display: inline-flex; align-items: center;">
+            <fa-icon [icon]="['fas','globe']" class="icon-small"></fa-icon>
         </div>
         Public
     </div>
     <div class="divider"></div>
-    <div class="menu-item">
-        <div class="member-avatar">
-          <span>AB</span>
+    <div>
+        <div class="menu-item member-avatar">
+          <span style="display:flex;align-items:center;justify-content: center;">AB</span>
         </div>
-        <div class="member-avatar">
-            <span>CD</span>
+        <div class="menu-item member-avatar">
+            <span style="display:flex;align-items:center;justify-content: center;">CD</span>
         </div>
-        <div class="member-avatar" style="background-color:#63a0d2;">
-            <span>CD</span>
+        <div class="menu-item member-avatar" style="background-color:#63a0d2;">
+            <span style="display:flex;align-items:center;justify-content: center;">CD</span>
         </div>
     </div>
     <div class="menu-item" style="background-color:#63a0d2;">
@@ -42,7 +38,7 @@
   <div class="board-menu-right" style="display:flex;align-items:center;">
       <div class="menu-item">
           <span>
-            <fa-icon [icon]='["fas","ellipsis-h"]'></fa-icon>
+            <fa-icon [icon]='["fas","ellipsis-h"]' class="icon-small"></fa-icon>
             Show Menu
           </span>
       </div>

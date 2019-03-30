@@ -3,30 +3,33 @@
     width: 210px;
 }
 
-.nav-section-item {
-    padding: 2px 2px 2px 0px;
-    border-radius: 4px;
-    font-family: Helvetica Neue,Arial,Helvetica,sans-serif;
-    font-size: 14px;
-    font-weight: 700; 
-    margin-bottom: 2px;
-
+.is-active{
+    background-color: #e4f0f6;
+    color: #026aa7;
 }
 
-.nav-section-item:hover {
-    background-color: rgba(9,45,66,.13);
+.nav-section-item {
+    padding: 6px 8px 6px 0px;
+    margin-bottom: 4px;
+    border-radius: 4px;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    min-height: 20px;
+    overflow: hidden;
+    text-decoration: none;
 }
 
 .nav-section-header {
     padding: 8px;
 }
 
-.boards-item{
-    background-color: #e4f0f6;
-    color: #026aa7;
+.nav-section-item:hover{
+    background-color: rgba(9,45,66,.13);
 }
 
-.boards-item:hover{
+.is-active:hover{
     background-color: #e4f0f6;
 }
 
