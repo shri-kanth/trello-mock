@@ -23,14 +23,15 @@
 
 .board-list{
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 23.5% 23.5% 23.5% 23.5%;
     grid-row-gap: 16px;
+    grid-column-gap: 16px;
     justify-content: space-between;	
 }
 
 .board{
     background-color: rgb(0, 121, 191);
-    width: 187px;
+    width: 100%;
     padding: 8px;
     border-radius: 3px;
     display: block;
@@ -66,6 +67,7 @@
 }
 
 .new-board{
+    height: 96px;
     background-color: #e7eaec;
     color: #6b808c;
     display: flex;
