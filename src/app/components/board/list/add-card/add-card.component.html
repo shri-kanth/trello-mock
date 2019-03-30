@@ -1,15 +1,17 @@
-<div class="container">
+<div class="add-card-container">
       <div class="add-card-input">
-        <input type="text" 
+        <textarea
          name="title" 
          [(ngModel)]="title" 
-         placeholder="Add Card title">
+         placeholder="Enter title for this card"
+         class="add-card-text-area">
+         </textarea>
       </div>
-  	   <div class="buttons-container">
+  	<div class="buttons-container">
         <button class="add-button"
                 (click)="onSubmit()">
           <span>Add Card</span>
        </button>
         <fa-icon [icon]="['fas','times']" (click)="onCancel()"></fa-icon>
-       </div>
+      </div>
 </div>

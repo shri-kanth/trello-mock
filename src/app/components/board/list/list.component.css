@@ -1,52 +1,102 @@
 .list-container{
 	background-color: #dfe3e6;
-	border-radius: 3px;
-	box-sizing: border-box;
 	display: flex;
-  flex-direction: column;
-	position: relative;
-	white-space: normal;
+	flex-direction: column;
 	width: 272px;
   margin: 0 4px;
+  box-sizing: border-box;
   vertical-align: top;
+	white-space: nowrap;
+	border-radius: 3px;
+  max-height: 100%;
+  position: relative;
+  white-space: normal;
+}
+
+.list-name {
+  display: inline-block;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  height: 28px;
+  background: transparent;
+  border-radius: 3px;
+  box-shadow: none;
+  font-weight: 700;
+  margin: -4px 0;
+  height: 20px;
+  min-height: 20px;
+  padding: 4px 8px;
+  resize: none;
+  max-height: 256px;
+}
+
+.list-container:first-child{
+	margin-left: 8px;
+}
+
+.list-textarea-wrapper{
+  min-height: 20px;
+  padding: 10px 36px 8px 8px;
+}
+
+.list-menu {
+  position: absolute;
+  right: 4px;
+  top: 4px; 
+  border-radius: 3px;
+}
+
+.list-menu:hover {
+  color: #516b7a;
+  text-decoration: none;
+  background-color: rgba(9,45,66,.13);
+}
+
+
+.list-menu fa-icon{
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content:center;
 }
 
 .list-header {
-	height: 40px;;
+  flex: 0 0 auto;
+  position: relative;
+  width: 100%;
 }
 
-.list-header h2{
-	line-height: 20px;
-	color: #17394d;
-	box-sizing: border-box;
-	border:none;
-	background: transparent;
-	border-radius: 3px;
-	box-shadow: none;
-	font-size: 14px;
-	font-weight: 700;
-	margin: -4px 0;
-	margin-top: 10px; 
-	min-height: 20px;
-	padding: 4px 8px;
-	max-height: 256px;
+.list-header textarea {
 	overflow: hidden;
   overflow-wrap: break-word;
-	height: 28px;
-	vertical-align: middle;
+  height: 28px;
+}
+
+.card-list-wrapper {
+	flex: 1 1 auto;
+	margin-bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 0 4px;
+  padding: 0 4px;
+  z-index: 1;
+  min-height: 0;
 }
 
 .new-card {
 	border-radius: 0 0 3px 3px;
   color: #6b808c;
+  display: block;
   flex: 0 0 auto;
   padding: 8px;
   position: relative;
-	text-decoration: none;
-	font-family: Helvetica Neue,Arial,Helvetica,sans-serif;
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 400;
+  text-decoration: none;
+}
+
+.new-card:hover{
+  background-color: rgba(9,45,66,.13);
+  color: #17394d;
+  text-decoration: underline;
 }
 
 .card-list-container{
@@ -56,9 +106,6 @@
 .cdk-drag-preview {
   box-sizing: border-box;
   border-radius: 4px;
-  /* box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
-              0 8px 10px 1px rgba(0, 0, 0, 0.14),
-              0 3px 14px 2px rgba(0, 0, 0, 0.12); */
 }
 
 .cdk-drag-placeholder {

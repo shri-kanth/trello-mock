@@ -1,0 +1,16 @@
+.app-surface{
+    display:flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.header-surface{
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+.router-surface {
+    flex: 1 1 auto;
+    width: 100%;
+}

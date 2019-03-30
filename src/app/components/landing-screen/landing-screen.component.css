@@ -1,0 +1,21 @@
+.landing-screen-wrapper{
+	display: flex;
+    flex-direction: row;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+@media only screen and (max-width: 711px) {
+	.sidebar-container{
+		display: none;
+	}
+	
+	.page-conatiner {
+		width: 100%;
+		min-width: 352px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
+
+

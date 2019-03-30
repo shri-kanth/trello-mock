@@ -1,0 +1,17 @@
+.boards-page-wrapper{
+	margin-top: 40px;
+	width: 860px;
+	padding-left: 64px;
+	overflow: auto;
+}
+
+@media only screen and (max-width: 711px){
+	.boards-page-wrapper {
+		width: 100%;
+		min-width: 352px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
+
+

@@ -9,7 +9,11 @@ import { StorageService } from './storage.service';
 })
 export class CardService {
 
-  constructor(private storageService:StorageService) { }
+  cardLabelDisplayActive:boolean;
+
+  constructor(private storageService:StorageService) {
+    this.cardLabelDisplayActive = false;
+   }
 
   getCardsByListId(listId:number):Observable<Card[]>{
   	return of(<Card[]>this.storageService.getAll(StorageService.CARD_ENTITY,String(listId)));

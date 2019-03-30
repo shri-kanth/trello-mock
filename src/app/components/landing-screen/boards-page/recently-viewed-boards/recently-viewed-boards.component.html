@@ -1,0 +1,19 @@
+<div class="recently-viewed-boards-wrapper">
+	<div class="recently-viewed-boards-header">
+			<fa-icon [icon]="['fas','clock']" flip="horizontal" class="icon-large"></fa-icon>
+			<h3 class="recently-viewed-boards-title">Recently Viewed</h3>
+		</div>
+		<div class="board-list">
+			<div class="board"
+				*ngFor="let board of recentlyViewedBoards" 
+				routerLink="/board/{{board.id}}">
+				<div class="board-tile-details">
+					<div class="board-title">{{ board.title }}</div>
+					<div class="board-footer">
+						<fa-icon [icon]="['fas','star']" class="icon-small star-icon"></fa-icon>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+

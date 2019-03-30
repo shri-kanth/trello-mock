@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild ,ElementRef} from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 import { List } from 'src/app/models/List';
@@ -13,6 +13,8 @@ import { ListService } from 'src/app/services/list.service';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
+
+  @ViewChild('cardListWrapper') cardListWrapper: ElementRef;
 
   @Input() list: List;
 
@@ -40,7 +42,19 @@ export class ListComponent implements OnInit {
   }
 
   onAddNewCard() {
+    console.log(this.cardListWrapper.nativeElement.scrollTop);
+    console.log(this.cardListWrapper.nativeElement.scrollHeight);
     this.isAddCardActive = true;
+    console.log(this.cardListWrapper.nativeElement.scrollTop);
+    console.log(this.cardListWrapper.nativeElement.scrollHeight);
+    if(this.cardListWrapper){
+      this.cardListWrapper.nativeElement.scrollTop = 50;
+      console.log(this.cardListWrapper.nativeElement.scrollTop);
+    }
+    this.cardListWrapper.nativeElement.scrollIntoView(false)
+    console.log(this.cardListWrapper);
+    console.log(this.cardListWrapper.nativeElement.scrollTop);
+    console.log(this.cardListWrapper.nativeElement.scrollHeight);
   }
 
   onDelete(){

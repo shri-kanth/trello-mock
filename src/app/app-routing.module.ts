@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { LandingScreenComponent } from './components/landing-screen/landing-screen.component';
 import { BoardComponent } from './components/board/board.component';
 
 const routes: Routes = [
-	{path: '', component: LandingPageComponent},
+	{path: '', component: LandingScreenComponent},
 	{path: 'board/:id', component: BoardComponent},
 ];
 

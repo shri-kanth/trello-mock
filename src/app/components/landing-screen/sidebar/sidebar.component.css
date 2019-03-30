@@ -1,3 +1,8 @@
+.sidebar-wrapper{
+    margin-top: 40px;
+    width: 210px;
+}
+
 .nav-section-item {
     padding: 2px 2px 2px 0px;
     border-radius: 4px;

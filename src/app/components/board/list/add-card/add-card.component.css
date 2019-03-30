@@ -1,27 +1,23 @@
-.container{
-    position: relative;
-    top:  -32px;
-    left: -20px;
+.add-card-container{
+    padding-bottom: 8px;
 }
 
 .add-card-input{
     background-color: #fff;
     border-radius: 3px;
-    box-shadow: 0 1px 0 rgba(9,45,66,.25);
+    padding: 6px 8px 2px 8px;
+    box-shadow: none;
     cursor: pointer;
     display: block;
     margin-bottom: 8px;
-    width: 260px;
     max-width: 300px;
     min-height: 20px;
     position: relative;
     text-decoration: none;
     z-index: 0;
-    padding: 6px 8px 2px;
-    margin-right: 4px;
 }
 
-.add-card-input input{
+/* .add-card-input input{
     border:none;
     clear: both;
     display: block;
@@ -30,14 +26,22 @@
     text-decoration: none;
     word-wrap: break-word;
     color: #17394d;
+} */
+
+.add-card-text-area{
+    overflow: hidden;
+    overflow-wrap: break-word;
+    resize: none;
+    height: 54px;
+    padding: 0px;
+    box-shadow: none;
 }
 
-.buttons-container {
-    height: 32px;
-    transition: margin 85ms ease-in,height 85ms ease-in;
-    margin: 4px 0 0;
-    vertical-align: top;
+textarea:focus{
+    outline: 0;
 }
+
+
 
 .add-button{
     background-color: #5aac44;

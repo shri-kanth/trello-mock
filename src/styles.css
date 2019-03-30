@@ -8,17 +8,58 @@ body, button, html, input, select, textarea {
     font-weight: 400;
 }
 
-fa-icon {
-    display: inline-block;
-    height: 32px;
-    width: 32px;
-    top: 0;
-    left: 0;
-    text-decoration: none;
-    text-align: center;
-    font-style: normal;
-    font-size: 16px;
-    font-weight: 400;
+html,body {
+    height : 100%;
+}
+
+.icon-large {
+  height: 32px;
+  width: 32px;
+  font-size: 16px;
+  line-height: 32px;
+}
+
+.icon-small {
+  height: 20px;
+  width: 20px;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.icon-large,.icon-small{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+textarea {
+  background-color: #fafcfc;
+  border: none;
+  box-shadow: inset 0 0 0 2px #dfe3e6;
+  color: #17394d;
+  box-sizing: border-box;
+  width: 100%;
+  -webkit-appearance: none;
+  border-radius: 3px;
+  display: block;
+  line-height: 20px;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  transition-property: background-color,border-color,box-shadow;
+  transition-duration: 85ms;
+  transition-timing-function: ease;
+}
+
+textarea:focus {
+  background: none;
+  border: none;
+  box-shadow: none;
+  height: auto;
+  margin-bottom: 4px;
+  max-height: 162px;
+  min-height: 54px;
+  overflow-y: auto;
+  padding: 0;
 }
 
 .un-styled-button {
@@ -42,3 +83,40 @@ fa-icon {
     top: -2px;
     z-index: 2;
 }
+
+.fancy-scroll::-webkit-scrollbar-track-piece:vertical:start {
+    border-radius: 4px 4px 0 0;
+  }
+  .fancy-scroll::-webkit-scrollbar-track-piece:vertical:end {
+    border-radius: 0 0 4px 4px;
+  }
+  .fancy-scroll::-webkit-scrollbar-track-piece:horizontal:start {
+    border-radius: 4px 0 0 4px;
+  }
+  .fancy-scroll::-webkit-scrollbar-track-piece:horizontal:end {
+    border-radius: 0 4px 4px 0;
+  }
+  
+  .fancy-scroll::-webkit-scrollbar-thumb:vertical,
+  .fancy-scroll::-webkit-scrollbar-thumb:horizontal {
+    background: rgba(9, 45, 66, 0.13);
+    border-radius: 4px;
+    display: block;
+    height: 48px;
+  }
+  
+  .fancy-scroll::-webkit-scrollbar {
+      height: 8px;
+      width: 8px;
+  }
+  
+  .fancy-scroll::-webkit-scrollbar-button {
+      display: block;
+      height: 4px;
+      width: 4px;
+  }
+  
+  .fancy-scroll::-webkit-scrollbar-track-piece {
+      background: rgba(0,0,0,.15);
+  } 
+  

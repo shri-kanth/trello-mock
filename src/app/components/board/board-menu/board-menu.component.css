@@ -1,0 +1,89 @@
+.board-menu-surface{
+    flex: none;
+    height: auto;
+    padding: 8px 4px 8px 8px;
+    position: relative;
+}
+
+.board-title{
+    display: inline-block;
+    border-radius: 3px;
+    cursor: default;
+    color: #f6f6f6;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 32px;
+    padding-left: 4px;
+    padding-right: 2px;
+    text-decoration: none;
+    max-width: calc(100% - 12px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.test:hover{
+    background: red;
+}
+
+.menu-item {
+    border-radius: 3px;
+    color: #f6f6f6;
+    cursor: default;
+    float: left;
+    font-size: 14px;
+    height: 32px;
+    line-height: 32px;
+    margin: 0 4px 0 0;
+    padding: 0px 8px 0px 8px;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+}
+
+.menu-item:hover{
+    background: rgba(0,0,0,.3);
+}
+
+.board-title:hover {
+    background: rgba(0,0,0,.3);
+}
+
+.board-title-text{
+    padding-left: 8px;
+    padding-right: 12px;
+}
+
+.is-favourite{
+    display: inline-block;
+    color: #f6f6f6;
+    margin: 0 4px 0 0;
+    padding: 0px 8px 0px 8px;
+}
+
+.member-avatar{
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    margin-right: 0px;
+    margin-bottom: 4px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 25em;
+    background-color: #dfe3e6;
+    color: #17394d;
+    text-align: center;
+    overflow: visible;
+    position: relative;
+    width: 28px;
+}
+
+.divider {
+    float: left;
+    border-left: 1px solid hsla(0,0%,100%,.2);
+    height: 16px;
+    margin: 8px 4px 0 0;
+}

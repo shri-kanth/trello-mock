@@ -124,6 +124,13 @@ export class StorageService {
     card.title = title;
     card.description = description;
     card.listId = listId;
+    if(title.indexOf('1') > -1){
+      card.label = "Test Label";
+      card.labelColor = "green";
+    }else{
+      card.label = "Linux";
+      card.labelColor = "blue";
+    }
     return <Card>this.saveOrUpdate(StorageService.CARD_ENTITY,card);
   }
  

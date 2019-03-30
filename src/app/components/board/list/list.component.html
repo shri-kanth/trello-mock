@@ -1,32 +1,36 @@
 <div class="list-container">
   <div class="list-header">
-      <!-- <button type="submit" class="un-styled-button hide-dialog-trigger" (click)="onDelete()">
-          <fa-icon [icon]="['fas','times']"></fa-icon>
-      </button> -->
-    <h2>{{ list.title }}</h2>
-  </div>  
-  <div
-      cdkDropList
-      id="{{getListId()}}"
-      [cdkDropListData]="cards"
-      class="card-list-container"
-      [cdkDropListConnectedTo]="getConnectedList()"
-      (cdkDropListDropped)="dropCard($event)">
-      <app-card 
-        *ngFor = "let card of cards"
-        [card] = "card"
-        cdkDrag>
-      </app-card>
+      <div class="list-textarea-wrapper">
+          <textarea class="list-name">{{list.title}}</textarea>
+      </div>
+      <div class="list-menu">
+          <fa-icon [icon]='["fas","ellipsis-h"]'></fa-icon>
+      </div>
   </div>
-  <div class="new-card">
-      <fa-icon [icon]='["fas","plus"]'></fa-icon>
-      <span (click)="onAddNewCard()" *ngIf="!isAddCardActive" >
-        Add another card
-      </span>
-    <app-add-card
-      *ngIf="isAddCardActive" 
-      (addCardEventEmitter)="addCardEventReciever($event)"
-      [list]="list"> 
-    </app-add-card>
+  <div #cardListWrapper class="card-list-wrapper fancy-scroll">
+      <div
+          cdkDropList
+          id="{{getListId()}}"
+          [cdkDropListData]="cards"
+          class="card-list-container"
+          [cdkDropListConnectedTo]="getConnectedList()"
+          (cdkDropListDropped)="dropCard($event)">
+          <app-card 
+            *ngFor = "let card of cards"
+            [card] = "card"
+            cdkDrag>
+          </app-card>
+      </div>
+      <app-add-card
+        *ngIf="isAddCardActive" 
+        (addCardEventEmitter)="addCardEventReciever($event)"
+        [list]="list"> 
+      </app-add-card>
   </div>
+    <div class="new-card">
+        <fa-icon *ngIf="!isAddCardActive" [icon]='["fas","plus"]' class="icon-sm"></fa-icon>
+        <span (click)="onAddNewCard()" *ngIf="!isAddCardActive" >
+          Add another card
+        </span>
+    </div>
 </div>

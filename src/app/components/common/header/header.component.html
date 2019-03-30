@@ -1,31 +1,37 @@
-<header id="header">
-	<div routerLink="" class="logo">
-		<span class="logo-default"></span>
-		<span class="logo-loading"></span>
+<header class="header-wrapper">
+	<div routerLink="" class="logo">	<!-- positioning logo by absolute-->
+		<div class="logo-default"></div>
+		<div class="logo-loading"></div>
 	</div>
-	<div routerLink="" class="header-button">
-		<fa-icon [icon]="['fas', 'home']" class="header-button-icon"></fa-icon>	
-	</div>
-	<div routerLink="" class="header-button">
-			<fa-icon [icon]="['fas', 'plus-square']" class="header-button-icon"></fa-icon>
-			<span class="header-text">Boards</span>	
-	</div>
-	<div class="header-search">
-		<input class="header-search-input" type="text">
-		<fa-icon [icon]="['fas','search']" flip="horizontal" class="header-button-icon header-search-icon"></fa-icon>
-	</div>
-	<div class="header-user">
-		<div class="header-button header-avatar">
-			<span class="header-button-icon">SK</span>
+	<div style="display:flex;justify-content:space-between;">
+		<div class="left-align">
+			<div routerLink="" class="header-button">
+				<fa-icon [icon]="['fas', 'home']" class="header-button-icon"></fa-icon>	
+			</div>
+			<div routerLink="" class="header-button">
+				<fa-icon [icon]="['fas', 'plus-square']" class="header-button-icon"></fa-icon>
+				<span class="header-text">Boards</span>	
+			</div>
+			<div class="header-button header-search">
+				<input class="header-search-input" type="text">
+				<fa-icon [icon]="['fas','search']" flip="horizontal" class="header-button-icon header-search-icon"></fa-icon>
+			</div>
 		</div>
-		<div class="header-button notifications">
-			<fa-icon [icon]="['fas', 'bell']" class="header-button-icon"></fa-icon>
+		<div class="right-align">
+			<div class="header-user">
+				<div class="header-button header-avatar">
+					<span class="member-avatar-icon">SK</span>
+				</div>
+				<div class="header-button notifications">
+					<fa-icon [icon]="['fas', 'bell']" class="header-button-icon"></fa-icon>
+				</div>
+				<div class="header-button">
+					<fa-icon [icon]="['fas', 'info-circle']" class="header-button-icon"></fa-icon>
+				</div>
+				<div class="header-button">
+					<fa-icon [icon]="['fas', 'plus']" class="header-button-icon"></fa-icon>
+				</div>
+			</div>
 		</div>
-		<div class="header-button">
-			<fa-icon [icon]="['fas', 'info-circle']" class="header-button-icon"></fa-icon>
-		</div>
-		<div class="header-button">
-			<fa-icon [icon]="['fas', 'plus']" class="header-button-icon"></fa-icon>
-		</div>
-	</div>
+	</div>	
 </header>

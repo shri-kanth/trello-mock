@@ -1,0 +1,26 @@
+<div class="personal-boards-wrapper">
+	<div class="personal-boards-header">
+		<fa-icon [icon]="['fas','user']" class="icon-large"></fa-icon>
+		<h3 class="personal-boards-title">Personal Boards</h3>
+	</div>
+	<div class="board-list">
+		<div class="board"
+			*ngFor="let board of boards" 
+			routerLink="/board/{{board.id}}">
+			<div class="board-tile-details">
+				<div class="board-title">{{ board.title }}</div>
+				<div class="board-footer">
+					<fa-icon [icon]="['fas','star']" class="icon-small star-icon"></fa-icon>
+				</div>
+			</div>
+		</div>
+		<div class="new-board board" (click)="onCreateNewBoard()">
+			<div class="board-tile">
+				Create new board...
+			</div>
+		</div>
+		<app-add-board *ngIf="isAddBoardActive" 
+			(addBoardEventEmitter)="addBoardEventReciever($event)">
+		</app-add-board>
+	</div>		
+</div>

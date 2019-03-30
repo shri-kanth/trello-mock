@@ -1,29 +1,35 @@
-<div class="surface">
-	<app-menu [board]="board"></app-menu>
-	<div cdkDropList 
-	[cdkDropListData]="lists"
-	cdkDropListOrientation="horizontal"
-	(cdkDropListDropped)="dropList($event)"
-	class="list-container">
-		<app-list 
-			*ngFor="let list of lists" 
-			[list]="list"
-			[cdkDragData]="list"
-			[listIdArray]="getListIdArray()"
-			cdkDrag>
-		</app-list>
-		<div class="new-list">
-			<fa-icon [icon]='["fas","plus"]'></fa-icon>
-			<span (click)="onAddNewList()" 
-				*ngIf="!isAddListActive">
-				Add another list
-			</span>
-			<app-add-list *ngIf="isAddListActive" 
-				[board]="board"
-				(addListEventEmitter)="addListEventReciever($event)">
-			</app-add-list>
+<div class="board-surface"> <!-- covers 100% of screen after header-->
+	<div class="board-menu-wrapper">
+		<app-board-menu [board]="board"></app-board-menu>
+	</div>
+	<div class="list-container-wrapper"> <!-- covers 100% of screen after app menu-->
+		<div class="relative-position-full-height">
+			<div class="absolute-position-full-surface">
+				<div cdkDropList 
+				[cdkDropListData]="lists"
+				cdkDropListOrientation="horizontal"
+				(cdkDropListDropped)="dropList($event)"
+				class="list-container fancy-scroll board-x-scroll">
+					<app-list 
+						*ngFor="let list of lists" 
+						[list]="list"
+						[cdkDragData]="list"
+						[listIdArray]="getListIdArray()"
+						cdkDrag>
+					</app-list>
+					<div class="new-list">
+						<fa-icon [icon]='["fas","plus"]'></fa-icon>
+						<span (click)="onAddNewList()" 
+							*ngIf="!isAddListActive">
+							Add another list
+						</span>
+						<app-add-list *ngIf="isAddListActive" 
+							[board]="board"
+							(addListEventEmitter)="addListEventReciever($event)">
+						</app-add-list>
+					</div>	
+				</div>
+			</div>		
 		</div>
-		
 	</div>
 </div>
-
