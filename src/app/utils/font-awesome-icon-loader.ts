@@ -5,7 +5,10 @@ import { faHome, faPlusSquare,
         faTimes,faClock,faUser,
         faPen, faPencilAlt, 
         faAlignJustify, faCheckSquare,
-        faEllipsisH, faStar, faGlobe } from '@fortawesome/free-solid-svg-icons';
+        faEllipsisH, faStar, faGlobe,
+        faTag, faPaperclip, faArrowRight,
+        faCopy, faEye, faArchive , 
+        faShareAlt, faCreditCard} from '@fortawesome/free-solid-svg-icons';
 
 export class FontAwesomeIconLoader {
     iconsArray:IconDefinition[] = [];
@@ -18,6 +21,9 @@ export class FontAwesomeIconLoader {
                 faTimes,faClock,faUser,
                 faPen,faPencilAlt, 
                 faAlignJustify, faCheckSquare,
-                faEllipsisH, faStar,faGlobe);
+                faEllipsisH, faStar,faGlobe,
+                faTag, faPaperclip, faArrowRight,
+                faCopy, faEye, faArchive, 
+                faShareAlt, faCreditCard);
     }
 }

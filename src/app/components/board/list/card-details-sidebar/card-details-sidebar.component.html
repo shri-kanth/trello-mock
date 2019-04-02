@@ -1,0 +1,54 @@
+<div class="card-details-sidebar">
+  <div class="card-details-sidebar-section">
+      <h3 class="card-details-sidebar-section-heading">ADD TO CARD</h3>
+      <div class="card-details-sidebar-button">
+          <fa-icon [icon]="['fas','user']" class="icon-small mild-color"></fa-icon>
+          Members
+      </div>
+      <div class="card-details-sidebar-button" (click)="isLabelPopUpActive=true">
+          <fa-icon [icon]="['fas','tag']"  flip="vertical" class="icon-small mild-color"></fa-icon>
+          Labels
+          <app-card-details-labels-popup *ngIf="isLabelPopUpActive" (labelsPopupEventEmitter)="labelsPopupEventReciever($event)"></app-card-details-labels-popup>
+      </div>
+      <div class="card-details-sidebar-button">
+          <fa-icon [icon]="['fas','check-square']" class="icon-small mild-color"></fa-icon>
+          Checklist
+      </div>
+      <div class="card-details-sidebar-button">
+          <fa-icon [icon]="['fas','clock']" flip="horizontal" class="icon-small mild-color"></fa-icon>
+          Due Date
+      </div>
+      <div class="card-details-sidebar-button">
+          <fa-icon [icon]="['fas','paperclip']" class="icon-small mild-color"></fa-icon>
+          Attachment
+      </div>
+  </div>
+  <div class="card-details-sidebar-section">
+      <h3 class="card-details-sidebar-section-heading">POWER-UPS</h3>
+      <div class="card-details-sidebar-quiet-button">Get Power Ups</div>
+  </div>
+  <div class="card-details-sidebar-section">
+      <h3 class="card-details-sidebar-section-heading">ACTIONS</h3>
+      <div class="card-details-sidebar-button">
+          <fa-icon [icon]="['fas','arrow-right']" class="icon-small mild-color"></fa-icon>
+          Move
+      </div>
+      <div class="card-details-sidebar-button">
+          <fa-icon [icon]="['fas','copy']"   class="icon-small mild-color"></fa-icon>
+          Copy
+      </div>
+      <div class="card-details-sidebar-button">
+          <fa-icon [icon]="['fas','eye']"  class="icon-small mild-color"></fa-icon>
+          Watch
+      </div>
+      <div class="card-details-sidebar-button">
+          <fa-icon [icon]="['fas','archive']" class="icon-small mild-color"></fa-icon>
+          Archive
+      </div>
+      <div class="card-details-sidebar-button">
+          <fa-icon [icon]="['fas','share-alt']"  class="icon-small mild-color"></fa-icon>
+          Share
+      </div>
+  </div>                
+</div>
+

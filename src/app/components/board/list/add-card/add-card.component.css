@@ -52,6 +52,7 @@ textarea:focus{
     min-height: 30px;
     height: 30px;
     margin-top: 0;
+    margin-right: 4px; 
     padding-top: 4px;
     padding-bottom: 4px;
 

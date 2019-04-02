@@ -1,4 +1,4 @@
-.list-container{
+.list-wrapper{
 	background-color: #dfe3e6;
 	display: flex;
 	flex-direction: column;
@@ -30,7 +30,7 @@
   max-height: 256px;
 }
 
-.list-container:first-child{
+.list-wrapper:first-child{
 	margin-left: 8px;
 }
 
@@ -79,7 +79,7 @@
   overflow-x: hidden;
   margin: 0 4px;
   padding: 0 4px;
-  z-index: 1;
+  /* z-index: 1; */
   min-height: 0;
 }
 

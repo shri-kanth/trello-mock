@@ -1,8 +1,8 @@
-<div class="card-container" (mouseover)="isActive=true" (mouseout)="isActive=false">
+<div class="card-wrapper" (mouseover)="isActive=true" (mouseout)="isActive=false" (click)="isCardDetailsActive=true">
 	<div class="card-operations" [style.visibility]="isActive ? 'visible' : 'hidden'">
 		<fa-icon [icon]="['fas','pen']" class="icon-small"></fa-icon>
 	</div>
-	<div *ngIf="card.label" class="card-label-container"  [style.background-color]="card.labelColor" (click)="toggleCardLabelDisplay()">
+	<div *ngIf="card.label" class="card-label-wrapper"  [style.background-color]="card.labelColor" (click)="toggleCardLabelDisplay()">
 		<span *ngIf="isCardLabelDisplayActive()" class="card-label">{{card.label}}</span>
 	</div>
 	<span class="card-title">{{card.title}}</span>
@@ -23,3 +23,4 @@
 		</div>
 	</div>
 </div>
+<app-card-details *ngIf="isCardDetailsActive" [card]="card" (cardDetailsEventEmitter)="cardDetailsEventReciever($event)"></app-card-details>

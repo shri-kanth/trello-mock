@@ -69,7 +69,22 @@ export class ListComponent implements OnInit {
       .getCardsByListId(this.list.id)
       .subscribe(cards => {
           this.cards = cards;
-        })
+        });
+      }   
+    }
+    this.isAddCardActive = false;
+  }
+
+  cardEventReciever(cardEvent){
+    console.log("CARD EVENT RECEIEVED IN LIST");
+    console.log(cardEvent);
+    if(cardEvent){
+      if(cardEvent.listId == this.list.id){
+        this.cardService
+          .getCardsByListId(this.list.id)
+          .subscribe(cards => {
+            this.cards = cards;
+          });
       }   
     }
     this.isAddCardActive = false;

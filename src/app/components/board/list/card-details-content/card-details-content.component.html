@@ -1,0 +1,28 @@
+<div class="card-details-main-content">
+  <div class="card-details-section">
+      <div>
+          <fa-icon [icon]="['fas','align-justify']" class="icon-large mild-color"></fa-icon>
+      </div>
+      <div>
+          <h3 class="card-details-section-header">Description</h3>
+      </div>
+  </div>
+  <div class="description">
+    <p *ngIf="!isDescriptionEditorActive" (click)="activateDescriptionEditor()">
+      {{card.description || "Add a more detailed description..." }}
+    </p>
+    <textarea
+      *ngIf="isDescriptionEditorActive"
+      (blur)="onUpdateCardDescription()"
+      [(ngModel)]="cardDescription"
+      placeholder="Add a more detailed description..."></textarea>
+    <div *ngIf="isDescriptionUpdated" class="buttons-container">
+        <div class="add-button" (click)="onUpdateCardDescriptionConfirmation()">
+          <span>Save</span>
+        </div>
+        <div class="un-styled-button close-description-editor-button" >
+            <fa-icon [icon]="['fas','times']" class="large-icon" (click)="onUpdateCardDescriptionCancel();"></fa-icon>
+        </div>
+      </div>
+  </div>
+</div>

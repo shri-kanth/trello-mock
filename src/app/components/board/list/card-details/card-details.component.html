@@ -1,0 +1,24 @@
+<div class="window-overlay" style="z-index:10;overflow-y: auto;">
+    <div class="card-details-wrapper">
+        <div class="card-details-header">
+            <div style="flex:0 0 auto;">
+                <fa-icon [icon]="['fas','credit-card']" class="icon-large mild-color"></fa-icon>
+            </div>
+            <div style="flex:1 0 auto;">
+                <textarea class="card-details-header-title" (blur)="onCardTitleUpdateEvent($event)">{{card.title}}</textarea>
+                <p class="card-details-header-title-description">in list <span>{{card.listId}}</span></p>
+            </div>
+            <div style="flex:0 0 auto;" (click)="close()">
+                <fa-icon [icon]="['fas','times']" class="icon-large mild-color close-button"></fa-icon>
+            </div>
+        </div>
+        <div style="display: flex;">
+            <div>
+                <app-card-details-content [card]="card" (cardDetailsContentEventEmitter)="cardDetailsContentEventReceiver($event)"></app-card-details-content> 
+            </div> 
+            <div>
+                <app-card-details-sidebar></app-card-details-sidebar>
+            </div>  
+        </div>   
+    </div>
+</div>

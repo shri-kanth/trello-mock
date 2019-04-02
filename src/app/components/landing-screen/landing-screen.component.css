@@ -6,15 +6,13 @@
 }
 
 @media only screen and (max-width: 711px) {
-	.sidebar-container{
+	.sidebar-wrapper{
 		display: none;
 	}
 	
-	.page-conatiner {
+	.page-wrapper {
 		width: 100%;
 		min-width: 352px;
-		padding-left: 20px;
-		padding-right: 20px;
 	}
 }
 
