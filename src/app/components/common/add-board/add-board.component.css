@@ -1,7 +1,7 @@
 .overlay{
     display: flex;
     position:fixed;
-    z-index: 20;
+    /* z-index: 20; */
     width: 100%;
     height: 100%;
     top: 0px;

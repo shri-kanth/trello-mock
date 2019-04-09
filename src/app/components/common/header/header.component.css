@@ -100,7 +100,7 @@
     border: none;
     box-shadow: none;
     transition: width 150ms;
-    z-index: 1;
+    /* z-index: 1; */
 }
 
 .header-search-input:focus{

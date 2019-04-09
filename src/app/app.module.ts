@@ -30,9 +30,9 @@ import { NotificationPopUpComponent } from './components/common/notification-pop
 import { BoardMenuComponent } from './components/board/board-menu/board-menu.component';
 import { LandingScreenComponent } from './components/landing-screen/landing-screen.component';
 import { CardDetailsComponent } from './components/board/list/card-details/card-details.component';
-import { CardDetailsSidebarComponent } from './components/board/list/card-details-sidebar/card-details-sidebar.component';
-import { CardDetailsContentComponent } from './components/board/list/card-details-content/card-details-content.component';
-import { CardDetailsLabelsPopupComponent } from './components/board/list/card/card-details-labels-popup/card-details-labels-popup.component';
+import { CardDetailsSidebarComponent } from './components/board/list/card-details/card-details-sidebar/card-details-sidebar.component';
+import { CardDetailsContentComponent } from './components/board/list/card-details/card-details-content/card-details-content.component';
+import { CardDetailsLabelsPopupComponent } from './components/board/list/card-details/card-details-labels-popup/card-details-labels-popup.component';
 
 @NgModule({
   declarations: [

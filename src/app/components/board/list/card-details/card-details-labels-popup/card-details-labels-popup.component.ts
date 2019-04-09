@@ -14,8 +14,9 @@ export class CardDetailsLabelsPopupComponent implements OnInit {
   ngOnInit() {
   }
 
-  close():void{
+  close(event):void{
     console.log("HERE 1");
+    event.stopPropagation();
     this.labelsPopupEventEmitter.emit(null);
   }
 
